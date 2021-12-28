@@ -25,6 +25,9 @@ public class Main extends Application {
 			com.Driving_School.model.MySQLConnect.connectDb();
 			primaryStage.setTitle("Al-Aqsa Driving School - Log In");
 			primaryStage.show();
+			
+			
+			System.out.println("test");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
