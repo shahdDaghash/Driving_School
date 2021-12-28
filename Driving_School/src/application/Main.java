@@ -16,14 +16,10 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			System.out.println("testttttttttttttttt");   
-			
-			
-		
 			stg = primaryStage;
 			primaryStage.setResizable(false);
 			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("/com/Driving_School/view/LogIn.fxml"));
-			Scene scene = new Scene(root,1200,800);
+			Scene scene = new Scene(root,1300,800);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			com.Driving_School.model.MySQLConnect.connectDb();
