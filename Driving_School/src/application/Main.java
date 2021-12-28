@@ -16,6 +16,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			System.out.println("testttttttttttttttt");
 			stg = primaryStage;
 			primaryStage.setResizable(false);
 			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("/com/Driving_School/view/LogIn.fxml"));
