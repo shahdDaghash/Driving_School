@@ -24,7 +24,8 @@ public class MySQLConnect {
 
 	public static void connectDb() {
 		try{
-			//test
+			//test 
+			//////
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivingschool1", "root", "root");
 			 JOptionPane.showInternalMessageDialog(null, "ConnectionEstablished");
