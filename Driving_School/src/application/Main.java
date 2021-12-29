@@ -19,11 +19,11 @@ public class Main extends Application {
 			stg = primaryStage;
 			primaryStage.setResizable(false);
 			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("/com/Driving_School/view/LogIn.fxml"));
-			Scene scene = new Scene(root,1200,800);
+			Scene scene = new Scene(root,1300,800); 
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			com.Driving_School.model.MySQLConnect.connectDb();
-			primaryStage.setTitle("Al-Aqsa Driving School - Log In");
+			primaryStage.setTitle("Al-Aqsa Driving School");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -33,7 +33,7 @@ public class Main extends Application {
 	        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
 	        stg.getScene().setRoot(pane);
 	    }
-
+        
 	public static void main(String[] args) {
 		launch(args);
 	}
