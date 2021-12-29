@@ -1,5 +1,5 @@
 package com.Driving_School.controller;
 
-public class SampleController {
-	
+public class AddStudentController {
+
 }
