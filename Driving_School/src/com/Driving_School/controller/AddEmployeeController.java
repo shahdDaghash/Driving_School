@@ -54,11 +54,11 @@ public class AddEmployeeController {
 			pst.setString(4, mobile);
 			pst.setString(5, empAddress);
 			pst.execute();
-			JOptionPane.showMessageDialog(null, "Employee Add succes");
+			JOptionPane.showMessageDialog(null, "Employee Add success");
 			clearFileds();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			JOptionPane.showMessageDialog(null,"Falied to add the employee");
+			JOptionPane.showMessageDialog(null,"Failed to add employee, already exist");
 		}
 
 	}
