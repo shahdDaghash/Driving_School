@@ -23,7 +23,7 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			com.Driving_School.model.MySQLConnect.connectDb();
-			primaryStage.setTitle("Al-Aqsa Driving School - Log In");
+			primaryStage.setTitle("Al-Aqsa Driving School");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

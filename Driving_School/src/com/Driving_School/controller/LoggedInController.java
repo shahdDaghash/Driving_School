@@ -44,7 +44,7 @@ public class LoggedInController {
 		ResultSet rs = stmt.executeQuery(sql);
 		if (rs.next()) {
 			wrongLogIn.setText("Success!");
-			m.changeScene("mainPage.fxml");
+			m.changeScene("/com/Driving_School/view/AddNewEmplyee.fxml");
 		}
 
 		else if (username.getText().isEmpty() && password.getText().isEmpty()) {
