@@ -7,12 +7,21 @@ public class Student {
 	String first_name;
 	String last_name;
 	String mobile_num;
-	Date eye_test_date;
+	String eye_test_date;
 	String address;
 	String process_state;
 	String emp_id;
-	
-	public Student(String student_id, String first_name, String last_name, String mobile_num, Date eye_test_date, String address, String process_state, String emp_id) {
+	/**
+	 * @param student_id
+	 * @param first_name
+	 * @param last_name
+	 * @param mobile_num
+	 * @param eye_test_date
+	 * @param address
+	 * @param process_state
+	 * @param emp_id
+	 */
+	public Student(String student_id, String first_name, String last_name, String mobile_num, String eye_test_date, String address, String process_state, String emp_id) {
 		super();
 		this.student_id = student_id;
 		this.first_name = first_name;
@@ -23,6 +32,20 @@ public class Student {
 		this.process_state = process_state;
 		this.emp_id = emp_id;
 	}
+	
+	public Student(String student_id, String first_name, String last_name, String mobile_num, String eye_test_date, String address, String process_state) {
+		super();
+		this.student_id = student_id;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.mobile_num = mobile_num;
+		this.eye_test_date = eye_test_date;
+		this.address = address;
+		this.process_state = process_state;
+		//this.emp_id = emp_id;
+	}
+	
+	
 
 	public String getStudent_id() {
 		return student_id;
@@ -56,11 +79,11 @@ public class Student {
 		this.mobile_num = mobile_num;
 	}
 
-	public Date getEye_test_date() {
+	public String getEye_test_date() {
 		return eye_test_date;
 	}
 
-	public void setEye_test_date(Date eye_test_date) {
+	public void setEye_test_date(String eye_test_date) {
 		this.eye_test_date = eye_test_date;
 	}
 

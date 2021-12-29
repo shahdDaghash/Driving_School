@@ -13,7 +13,9 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
+
 
 import com.Driving_School.model.*;
 
@@ -43,12 +45,16 @@ public class ViewStudentController implements Initializable{
     @FXML
     private TableColumn<Student, String> process_state;
 
+ 
+    @FXML
+    private TableColumn<Student, String> emp_id;
+    
     
     @FXML
     private TextField txt_address;
 
     @FXML
-    private TextField txt_eye_test_date;
+    private DatePicker txt_eye_test_date;
 
     @FXML
     private TextField txt_first_name;
@@ -91,6 +97,7 @@ public class ViewStudentController implements Initializable{
     	eye_test_date.setCellValueFactory(new PropertyValueFactory<Student, Date>("eye_test_date"));
     	address.setCellValueFactory(new PropertyValueFactory<Student, String>("address"));
     	process_state.setCellValueFactory(new PropertyValueFactory<Student, String>("process_state"));
+    	emp_id.setCellValueFactory(new PropertyValueFactory<Student, String>("emp_id"));
     	
     	listS = getDataStudents();
     	ViewStudents.setItems(listS);
@@ -103,13 +110,16 @@ public class ViewStudentController implements Initializable{
 		ObservableList<Student> list = FXCollections.observableArrayList();
 		try {
 			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("select * from student");
+			ResultSet rs = stmt.executeQuery("select * from student;");
 			while (rs.next()) {
+				
 				list.add(new Student(rs.getString("student_id"), rs.getString("first_name"), rs.getString("last_name"),
-						rs.getString("mobile_num"), rs.getDate("eye_test_date"), rs.getString("address"), rs.getString("process_state"), rs.getString("emp_id")));
+						rs.getString("mobile_num"), rs.getString("eye_test_date"), rs.getString("address"), rs.getString("process_state"), rs.getString("emp_id")));
+				System.out.println("Here");
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
+			System.out.println("Errorr");
 		}
 		return list;
 	}
@@ -117,17 +127,38 @@ public class ViewStudentController implements Initializable{
     
   //Load the selected row from table to the form to edit
     public void LoadRow() {
-    	Student selected = ViewStudents.getSelectionModel().getSelectedItem();
-    	txt_student_id.setText(selected.getEmp_id());
-    	txt_first_name.setText(selected.getFirst_name());
-    	txt_last_name.setText(selected.getLast_name());
-    	txt_mobile_num.setText(selected.getMobile_num());
-    	txt_eye_test_date.setText(selected.getEye_test_date().toString());
-    	txt_address.setText(selected.getAddress());
+//    	Student selected = ViewStudents.getSelectionModel().getSelectedItem();
+//    	txt_student_id.setText(selected.getStudent_id());
+//    	txt_first_name.setText(selected.getFirst_name());
+//    	txt_last_name.setText(selected.getLast_name());
+//    	txt_mobile_num.setText(selected.getMobile_num());
+//    	//txt_eye_test_date.setText(selected.getEye_test_date().toString());
+//    	int day = selected.getEye_test_date().getDay();
+//    	int month = selected.getEye_test_date().getMonth();
+//    	int year = selected.getEye_test_date().getYear();
+//    	txt_eye_test_date.setValue(LocalDate.of(year, month, day));
+//    	txt_address.setText(selected.getAddress());
+    }
+    
+    
+    //apply edited data to table
+    public void UpdateRow() {
+    	
     }
     
     
     
+    //search the table
+    public void search_it() {
+    	
+    }
+    
+    
+    
+  //display searched employees
+    public void getDataEmployessSearch() { 
+    	
+	}
     
 
 }

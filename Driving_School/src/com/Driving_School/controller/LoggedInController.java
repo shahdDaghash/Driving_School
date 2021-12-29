@@ -45,7 +45,7 @@ public class LoggedInController {
 		if (rs.next()) {
 			wrongLogIn.setText("Success!");
 			//m.changeScene("mainPage.fxml");
-			m.changeScene("/com/Driving_School/view/ViewModifyEmployee.fxml");
+			m.changeScene("/com/Driving_School/view/ViewModifyStudent.fxml");
 		}
 
 		else if (username.getText().isEmpty() && password.getText().isEmpty()) {
