@@ -43,7 +43,7 @@ public class AddEmployeeController {
 		String empLastName = lastName.getText().toString();
 		String mobile = mobileNum.getText().toString();
 		String empAddress = address.getText().toString();
-		String sql = "insert into users (emp_id,first_name,last_name,mobile_num,address)values(?,?,?,?,? )";
+		String sql = "insert into employee (emp_id,first_name,last_name,mobile_num,address)values(?,?,?,?,? )";
 		Connection conn = com.Driving_School.model.MySQLConnect.getConn();
 		PreparedStatement pst;
 		try {
@@ -57,7 +57,7 @@ public class AddEmployeeController {
 			JOptionPane.showMessageDialog(null, "Users Add succes");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			JOptionPane.showMessageDialog(null,e);
+			JOptionPane.showMessageDialog(null,"Falied");
 		}
 
 	}
