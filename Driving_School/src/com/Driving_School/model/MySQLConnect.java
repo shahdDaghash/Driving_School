@@ -36,20 +36,4 @@ public class MySQLConnect {
 		return conn;
 	}
 
-	public static ObservableList<Employee> getDataEmployess() { 
-		ObservableList<Employee> list = FXCollections.observableArrayList();
-		try {
-			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("select * from employee");
-			while (rs.next()) {
-//				System.out.println(rs.getString("emp_id"));
-				list.add(new Employee(rs.getString("emp_id"), rs.getString("first_name"), rs.getString("last_name"),
-						rs.getString("mobile_num"), rs.getString("address")));
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		return list;
-	}
-
 }

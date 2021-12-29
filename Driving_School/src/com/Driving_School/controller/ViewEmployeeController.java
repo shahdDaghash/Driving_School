@@ -62,7 +62,26 @@ public class ViewEmployeeController implements Initializable{
     ResultSet rs = null;
     PreparedStatement pst = null;
     
+   
     
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+    	emp_id.setCellValueFactory(new PropertyValueFactory<Employee, String>("emp_id"));
+    	first_name.setCellValueFactory(new PropertyValueFactory<Employee, String>("first_name"));
+    	last_name.setCellValueFactory(new PropertyValueFactory<Employee, String>("last_name"));
+    	mobile_num.setCellValueFactory(new PropertyValueFactory<Employee, String>("mobile_num"));
+    	address.setCellValueFactory(new PropertyValueFactory<Employee, String>("address"));
+    	
+    	listE = getDataEmployess();
+    	ViewEmployees.setItems(listE);
+    	
+    	
+    }
+    
+    
+    
+    //Load the selected row from table to the form to edit
     public void LoadRow() {
     	Employee selected = ViewEmployees.getSelectionModel().getSelectedItem();
     	txt_emp_id.setText(selected.getEmp_id());
@@ -72,6 +91,8 @@ public class ViewEmployeeController implements Initializable{
     	txt_address.setText(selected.getAddress());
     }
     
+    
+    //apply edited data to table
     public void UpdateRow() {
     	conn = MySQLConnect.connectDb();
     	Employee selected = ViewEmployees.getSelectionModel().getSelectedItem();
@@ -91,7 +112,7 @@ public class ViewEmployeeController implements Initializable{
             		
             		JOptionPane.showMessageDialog(null, "Employee updated Successfully");
             		
-            		listE = MySQLConnect.getDataEmployess();
+            		listE = getDataEmployess();
                 	ViewEmployees.setItems(listE);
     			}
     			else {
@@ -107,21 +128,8 @@ public class ViewEmployeeController implements Initializable{
     }
     
     
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-    	emp_id.setCellValueFactory(new PropertyValueFactory<Employee, String>("emp_id"));
-    	first_name.setCellValueFactory(new PropertyValueFactory<Employee, String>("first_name"));
-    	last_name.setCellValueFactory(new PropertyValueFactory<Employee, String>("last_name"));
-    	mobile_num.setCellValueFactory(new PropertyValueFactory<Employee, String>("mobile_num"));
-    	address.setCellValueFactory(new PropertyValueFactory<Employee, String>("address"));
-    	
-    	listE = MySQLConnect.getDataEmployess();
-    	ViewEmployees.setItems(listE);
-    	
-    	
-    }
     
-    
+    //search the table
     public void search_it() {
     	conn = MySQLConnect.connectDb();
     	
@@ -135,7 +143,28 @@ public class ViewEmployeeController implements Initializable{
     }
     
     
+    //display all employees
+    public ObservableList<Employee> getDataEmployess() { 
+    	conn = MySQLConnect.connectDb();
+		ObservableList<Employee> list = FXCollections.observableArrayList();
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("select * from employee");
+			while (rs.next()) {
+//				System.out.println(rs.getString("emp_id"));
+				list.add(new Employee(rs.getString("emp_id"), rs.getString("first_name"), rs.getString("last_name"),
+						rs.getString("mobile_num"), rs.getString("address")));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return list;
+	}
+    
+    
+    //display searched employees
     public ObservableList<Employee> getDataEmployessSearch() { 
+    	conn = MySQLConnect.connectDb();
 		ObservableList<Employee> list = FXCollections.observableArrayList();
 		try {
 			Statement stmt = conn.createStatement();
