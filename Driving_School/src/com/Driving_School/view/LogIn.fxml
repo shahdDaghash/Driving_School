@@ -63,7 +63,7 @@
                   <Font name="Arial Rounded MT Bold" size="20.0" />
                </font>
             </Button>
-            <PasswordField fx:id="password" layoutX="226.0" layoutY="486.0" prefHeight="34.0" prefWidth="165.0" promptText="Password" />
+            <PasswordField fx:id="password" layoutX="226.0" layoutY="486.0" prefHeight="33.0" prefWidth="170.0" promptText="Password" />
          </children>
       </AnchorPane>
    </right>
