@@ -11,37 +11,38 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Driving_School.controller.WelcomeController">
    <left>
-      <VBox prefHeight="400.0" prefWidth="116.0" style="-fx-background-color: #001824;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="800.0" prefWidth="140.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onMouseClicked="#Welcome" prefHeight="39.0" prefWidth="116.0" style="-fx-background-color: trasparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Home" textFill="WHITE">
+            <Button fx:id="home" mnemonicParsing="false" onAction="#OpenHome" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Home" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#ViewModifyEmployee" prefHeight="39.0" prefWidth="116.0" style="-fx-background-color: trasparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Employees" textFill="WHITE">
+            <Button fx:id="employee" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#OpenEmployee" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Employees" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="10.0" layoutY="49.0" mnemonicParsing="false" onMouseClicked="#AddNewStudent" prefHeight="39.0" prefWidth="116.0" style="-fx-background-color: trasparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Students" textFill="WHITE">
+            <Button fx:id="student" layoutX="10.0" layoutY="49.0" mnemonicParsing="false" onAction="#OpenStudent" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Students" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="10.0" layoutY="88.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="116.0" style="-fx-background-color: trasparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Payments" textFill="WHITE">
+            <Button fx:id="payments" layoutX="10.0" layoutY="88.0" mnemonicParsing="false" onAction="#OpenPayments" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Payments" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <MenuButton mnemonicParsing="false" prefHeight="36.0" prefWidth="116.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Add/Modify" textFill="#fcfafa">
+            <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Add/Modify" textAlignment="CENTER" textFill="WHITE">
               <items>
-                <MenuItem mnemonicParsing="false" text="Employees" />
+                <MenuItem mnemonicParsing="false" text="Employee" />
                 <MenuItem mnemonicParsing="false" text="Student" />
+                  <MenuItem mnemonicParsing="false" text="Vehicle " />
               </items>
                <font>
-                  <Font size="14.0" />
+                  <Font size="15.0" />
                </font>
             </MenuButton>
          </children>
@@ -50,12 +51,12 @@
    <center>
       <AnchorPane fx:id="ap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Text layoutX="285.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Al-Aqsa Driving School" textAlignment="CENTER" wrappingWidth="314.0418701171875">
+            <Text layoutX="321.0" layoutY="491.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Al-Aqsa Driving School" textAlignment="CENTER" wrappingWidth="572.4419555664062">
                <font>
-                  <Font size="26.0" />
+                  <Font size="48.0" />
                </font>
             </Text>
-            <ImageView fitHeight="285.0" fitWidth="431.0" layoutX="252.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="388.0" fitWidth="638.0" layoutX="321.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../../../../Desktop/logo.png" />
                </image>
