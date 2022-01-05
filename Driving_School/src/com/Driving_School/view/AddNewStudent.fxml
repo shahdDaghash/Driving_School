@@ -10,17 +10,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity"
-	minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0"
-	prefWidth="1100.0" style="-fx-background-color: #1b83cd;"
-	xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="com.Driving_School.controller.AddStudentController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1100.0" style="-fx-background-color: #1b83cd;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Driving_School.controller.AddStudentController">
 	<top>
-		<AnchorPane prefHeight="200.0" prefWidth="200.0"
-			BorderPane.alignment="CENTER">
+		<AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
 			<children>
-				<Label layoutX="339.0" layoutY="65.0" text="Add New Student"
-					textFill="WHITE">
+				<Label layoutX="339.0" layoutY="65.0" text="Add New Student" textFill="WHITE">
 					<font>
 						<Font name="Arial Rounded MT Bold" size="60.0" />
 					</font>
@@ -30,53 +24,39 @@
 		</AnchorPane>
 	</top>
 	<left>
-		<AnchorPane prefHeight="611.0" prefWidth="1300.0"
-			BorderPane.alignment="CENTER">
+		<AnchorPane prefHeight="611.0" prefWidth="1300.0" BorderPane.alignment="CENTER">
 			<children>
-				<Label layoutX="108.0" layoutY="19.0" prefHeight="51.0"
-					prefWidth="173.0" text="Id" textFill="WHITE">
+				<Label layoutX="108.0" layoutY="19.0" prefHeight="51.0" prefWidth="173.0" text="Id" textFill="WHITE">
 					<font>
 						<Font name="Arial Rounded MT Bold" size="27.0" />
 					</font>
 				</Label>
-				<TextField layoutX="281.0" layoutY="24.0"
-					prefHeight="41.0" prefWidth="198.0" promptText="Student Id" />
-				<Label layoutX="55.0" layoutY="89.0" prefHeight="51.0"
-					prefWidth="173.0" text="First name" textFill="WHITE">
+				<TextField layoutX="281.0" layoutY="24.0" prefHeight="41.0" prefWidth="198.0" promptText="Student Id" />
+				<Label layoutX="55.0" layoutY="89.0" prefHeight="51.0" prefWidth="173.0" text="First name" textFill="WHITE">
 					<font>
 						<Font name="Arial Rounded MT Bold" size="27.0" />
 					</font>
 				</Label>
-				<TextField layoutX="281.0" layoutY="94.0"
-					prefHeight="41.0" prefWidth="198.0" promptText="Student first name" />
-				<Label layoutX="55.0" layoutY="165.0" prefHeight="51.0"
-					prefWidth="173.0" text="Last name" textFill="WHITE">
+				<TextField layoutX="281.0" layoutY="94.0" prefHeight="41.0" prefWidth="198.0" promptText="Student first name" />
+				<Label layoutX="55.0" layoutY="165.0" prefHeight="51.0" prefWidth="173.0" text="Last name" textFill="WHITE">
 					<font>
 						<Font name="Arial Rounded MT Bold" size="27.0" />
 					</font>
 				</Label>
-				<TextField layoutX="281.0" layoutY="170.0"
-					prefHeight="41.0" prefWidth="198.0" promptText="Student last name" />
-				<TextField layoutX="281.0" layoutY="240.0"
-					prefHeight="41.0" prefWidth="198.0"
-					promptText="Student mobile number" />
-				<Label layoutX="55.0" layoutY="234.0" prefHeight="53.0"
-					prefWidth="173.0" text="Mobile number" textFill="WHITE">
+				<TextField layoutX="281.0" layoutY="170.0" prefHeight="41.0" prefWidth="198.0" promptText="Student last name" />
+				<TextField layoutX="281.0" layoutY="240.0" prefHeight="41.0" prefWidth="198.0" promptText="Student mobile number" />
+				<Label layoutX="55.0" layoutY="234.0" prefHeight="53.0" prefWidth="173.0" text="Mobile number" textFill="WHITE">
 					<font>
 						<Font name="Arial Rounded MT Bold" size="24.0" />
 					</font>
 				</Label>
-				<Label layoutX="85.0" layoutY="307.0" prefHeight="53.0"
-					prefWidth="173.0" text="Address" textFill="WHITE">
+				<Label layoutX="85.0" layoutY="307.0" prefHeight="53.0" prefWidth="173.0" text="Address" textFill="WHITE">
 					<font>
 						<Font name="Arial Rounded MT Bold" size="24.0" />
 					</font>
 				</Label>
-				<TextField layoutX="281.0" layoutY="313.0"
-					prefHeight="41.0" prefWidth="198.0" promptText="Student address" />
-				<Button layoutX="428.0" layoutY="414.0"
-					mnemonicParsing="false" prefHeight="53.0" prefWidth="102.0"
-					style="-fx-background-color: red;" text="Clear" textFill="#f8f8f8">
+				<TextField layoutX="281.0" layoutY="313.0" prefHeight="41.0" prefWidth="198.0" promptText="Student address" />
+				<Button layoutX="428.0" layoutY="414.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="102.0" style="-fx-background-color: red;" text="Clear" textFill="#f8f8f8">
 					<font>
 						<Font name="Arial Rounded MT Bold" size="22.0" />
 					</font>
@@ -84,9 +64,7 @@
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</Button>
-				<Button layoutX="629.0" layoutY="414.0"
-					mnemonicParsing="false" prefHeight="53.0" prefWidth="102.0"
-					style="-fx-background-color: white;" text="Add" textFill="#1b83cd">
+				<Button layoutX="629.0" layoutY="414.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="102.0" style="-fx-background-color: white;" text="Add" textFill="#1b83cd">
 					<font>
 						<Font name="Arial Rounded MT Bold" size="22.0" />
 					</font>
@@ -94,36 +72,37 @@
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</Button>
-				<DatePicker layoutX="767.0" layoutY="29.0"
-					prefHeight="31.0" prefWidth="186.0" />
-				<Label layoutX="558.0" layoutY="24.0" prefHeight="51.0"
-					prefWidth="173.0" text="Eye test date" textFill="WHITE">
+				<DatePicker layoutX="767.0" layoutY="29.0" prefHeight="31.0" prefWidth="186.0" />
+				<Label layoutX="558.0" layoutY="24.0" prefHeight="51.0" prefWidth="173.0" text="Eye test date" textFill="WHITE">
 					<font>
 						<Font name="Arial Rounded MT Bold" size="27.0" />
 					</font>
 				</Label>
-				<Label layoutX="570.0" layoutY="308.0" prefHeight="51.0"
-					prefWidth="173.0" text="Employee" textFill="WHITE">
+				<Label layoutX="570.0" layoutY="293.0" prefHeight="51.0" prefWidth="173.0" text="Employee" textFill="WHITE">
 					<font>
 						<Font name="Arial Rounded MT Bold" size="27.0" />
 					</font>
 				</Label>
-				<Label layoutX="553.0" layoutY="106.0" prefHeight="58.0"
-					prefWidth="184.0" text="Process status" textFill="WHITE">
+				<Label layoutX="553.0" layoutY="106.0" prefHeight="58.0" prefWidth="184.0" text="Process status" textFill="WHITE">
 					<font>
 						<Font name="Arial Rounded MT Bold" size="25.0" />
 					</font>
 				</Label>
-				<RadioButton layoutX="767.0" layoutY="132.0"
-					mnemonicParsing="false" text="RadioButton" />
-				<RadioButton layoutX="767.0" layoutY="162.0"
-					mnemonicParsing="false" text="RadioButton" />
-				<RadioButton layoutX="767.0" layoutY="191.0"
-					mnemonicParsing="false" text="RadioButton" />
-				<TextField layoutX="737.0" layoutY="313.0"
-					prefHeight="41.0" prefWidth="198.0" promptText="Employee id" />
-				<RadioButton layoutX="767.0" layoutY="216.0"
-					mnemonicParsing="false" text="RadioButton" />
+				<RadioButton layoutX="773.0" layoutY="128.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="In progress" textFill="#e1e1e1">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="17.0" />
+               </font></RadioButton>
+				<TextField layoutX="754.0" layoutY="293.0" prefHeight="41.0" prefWidth="198.0" promptText="Employee id" />
+            <RadioButton layoutX="773.0" layoutY="199.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" text="Dropped off" textFill="#e1e1e1">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="17.0" />
+               </font>
+            </RadioButton>
+            <RadioButton layoutX="773.0" layoutY="165.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Graduted " textFill="#e1e1e1">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="17.0" />
+               </font>
+            </RadioButton>
 			</children>
 		</AnchorPane>
 	</left>
