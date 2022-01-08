@@ -168,7 +168,20 @@ public class ViewEmployeeController implements Initializable{
 		ObservableList<Employee> list = FXCollections.observableArrayList();
 		try {
 			Statement stmt = conn.createStatement();
-			String sql1 = "Select * from employee where emp_id like '%" + search_box.getText() + "%' ;";
+			String sql1;
+			if(search_box.getText().matches("[0-9]+")) {
+				sql1 = "Select * from employee where emp_id like '%" + search_box.getText() + "%' ;";
+			}
+			else {
+				String[] split = search_box.getText().split(" ");
+				if(split.length == 1) {
+					sql1 = "Select * from employee where first_name like '%" + split[0] + "%' ;";
+				}
+				else {
+					sql1 = "Select * from employee where first_name like '%" + split[0] + "%' and last_name like '%" + split[1] + "%' ;";
+				}
+			}
+			
 			ResultSet rs = stmt.executeQuery(sql1);
 			while (rs.next()) {
 				list.add(new Employee(rs.getString("emp_id"), rs.getString("first_name"), rs.getString("last_name"),

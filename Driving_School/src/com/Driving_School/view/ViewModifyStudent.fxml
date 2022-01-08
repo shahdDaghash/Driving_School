@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Driving_School.controller.ViewStudentController">
    <children>
       <AnchorPane prefHeight="800.0" prefWidth="400.0" style="-fx-background-color: #D3D3D3;">
@@ -53,7 +52,7 @@
                   <Font name="Arial Rounded MT Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txt_process_date" layoutX="155.0" layoutY="562.0" prefHeight="35.0" prefWidth="200.0" />
+            <TextField fx:id="txt_process_state" layoutX="155.0" layoutY="562.0" prefHeight="35.0" prefWidth="200.0" />
             <Label layoutX="25.0" layoutY="570.0" text="Process State">
                <font>
                   <Font name="Arial Rounded MT Bold" size="16.0" />
@@ -75,18 +74,18 @@
                   <Font name="Arial Rounded MT Bold" size="16.0" />
                </font>
             </Button>
+            <TextField fx:id="txt_eye_test_date" layoutX="155.0" layoutY="423.0" prefHeight="35.0" prefWidth="200.0" />
          </children>
       </AnchorPane>
       <TableView fx:id="ViewStudents" layoutX="410.0" layoutY="119.0" onMouseClicked="#LoadRow" prefHeight="667.0" prefWidth="880.0">
          <columns>
-            <TableColumn fx:id="student_id" prefWidth="110.0" text="SSN" />
-            <TableColumn fx:id="first_name" prefWidth="110.0" text="First name" />
-            <TableColumn fx:id="last_name" prefWidth="110.0" text="Last name" />
-            <TableColumn fx:id="mobile_num" prefWidth="110.0" text="Mobile Number" />
-            <TableColumn fx:id="eye_test_date" prefWidth="110.0" text="Eye Test Date" />
-            <TableColumn fx:id="address" prefWidth="110.0" text="Address" />
-            <TableColumn fx:id="process_state" prefWidth="110.0" text="Process State" />
-            <TableColumn fx:id="emp_id" prefWidth="110.0" text="emp_id" />
+            <TableColumn fx:id="student_id" prefWidth="125.5" text="SSN" />
+            <TableColumn fx:id="first_name" prefWidth="125.5" text="First name" />
+            <TableColumn fx:id="last_name" prefWidth="125.5" text="Last name" />
+            <TableColumn fx:id="mobile_num" prefWidth="125.5" text="Mobile Number" />
+            <TableColumn fx:id="eye_test_date" prefWidth="125.5" text="Eye Test Date" />
+            <TableColumn fx:id="address" prefWidth="125.5" text="Address" />
+            <TableColumn fx:id="process_status" prefWidth="125.5" text="Process Status" />
          </columns>
       </TableView>
       <TextField fx:id="search_box" layoutX="1086.0" layoutY="81.0" onAction="#search_it" onInputMethodTextChanged="#search_it" onKeyPressed="#search_it" onKeyReleased="#search_it" onKeyTyped="#search_it" prefHeight="25.0" prefWidth="200.0" />
