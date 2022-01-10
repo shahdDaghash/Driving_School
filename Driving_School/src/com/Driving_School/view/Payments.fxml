@@ -11,5 +11,6 @@
       <TextField fx:id="search_name" layoutX="226.0" layoutY="83.0" />
       <Label fx:id="search_lb" layoutX="286.0" layoutY="250.0" text="Label" />
       <Button fx:id="search_btn" layoutX="275.0" layoutY="175.0" mnemonicParsing="false" onAction="#search_Action" text="Button" />
+      <TextField fx:id="search_lastname" layoutX="226.0" layoutY="121.0" />
    </children>
 </AnchorPane>
