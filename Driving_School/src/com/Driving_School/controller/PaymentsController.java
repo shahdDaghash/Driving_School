@@ -33,7 +33,6 @@ public class PaymentsController {
     void search_Action(ActionEvent event) throws Exception {
     	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivingschool1","root","root");
     	Statement stmt = con.createStatement();
-    	//String id = search_name.getText();
     	String first_name = search_name.getText();
     	String family_name = search_lastname.getText();
     	
