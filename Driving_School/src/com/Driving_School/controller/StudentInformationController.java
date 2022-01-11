@@ -127,18 +127,18 @@ public class StudentInformationController {
 
 	@FXML
 	void updateStudentRecord(MouseEvent event) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/com/Driving_School/view/ViewStudentList.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/com/Driving_School/view/ModifyStudent.fxml"));
 		Scene scene = new Scene(root);
 		Stage primaryStage = new Stage();
-		primaryStage.setTitle("Select Student Record");
+		primaryStage.setTitle("Update Student Record");
 		primaryStage.setScene(scene);
 		primaryStage.initModality(Modality.WINDOW_MODAL);
 		primaryStage.setResizable(false);
 		primaryStage.show();
 
-		final Node source = (Node) event.getSource();
-		final Stage stage2 = (Stage) source.getScene().getWindow();
-		stage2.close();
+//		final Node source = (Node) event.getSource();
+//		final Stage stage2 = (Stage) source.getScene().getWindow();
+//		stage2.close();
 	}
 
 	@FXML
