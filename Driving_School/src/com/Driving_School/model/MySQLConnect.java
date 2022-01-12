@@ -2,13 +2,9 @@ package com.Driving_School.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 import javax.swing.JOptionPane;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 public class MySQLConnect {
 	static Connection conn = null;

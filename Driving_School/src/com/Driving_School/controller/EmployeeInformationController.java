@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
 
 import com.Driving_School.model.Employee;
 import com.Driving_School.model.MySQLConnect;
-import com.Driving_School.model.Student;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

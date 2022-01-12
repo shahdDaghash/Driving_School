@@ -1,6 +1,5 @@
 package com.Driving_School.model;
 
-import java.sql.Date;
 
 public class Student {
 	String student_id;

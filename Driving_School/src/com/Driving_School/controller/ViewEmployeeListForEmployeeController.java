@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
 
 import com.Driving_School.model.Employee;
 import com.Driving_School.model.MySQLConnect;
-import com.Driving_School.model.Student;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,7 +23,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
