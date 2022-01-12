@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.fxml.FXMLLoader;
 
@@ -18,7 +19,10 @@ public class Main extends Application {
 		try {
 			stg = primaryStage;
 			primaryStage.setResizable(false);
-			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("/com/Driving_School/view/AddNewStudent.fxml"));
+
+			
+			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("/com/Driving_School/view/LogIn.fxml"));
+
 			Scene scene = new Scene(root,1300,800); 
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
