@@ -243,10 +243,5 @@
             <Font name="Arial Rounded MT Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="14.0" layoutY="244.0" mnemonicParsing="false" onAction="#viewTrainerInfo" prefWidth="200.0" text="View Trainer Info">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="20.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>

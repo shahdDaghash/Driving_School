@@ -145,7 +145,6 @@ public class StudentInformationController {
 			
 			//!return to last lesson date
 			
-			//!return to number of lessons taken
 			
 			//!!!!!update this function in the other class
 			
@@ -183,12 +182,4 @@ public class StudentInformationController {
 		msc.showInformation(stu);
 		
 	}
-	
-	
-	//return after doing employee page
-	@FXML
-	void viewTrainerInfo(MouseEvent event) {
-
-	}
-
 }

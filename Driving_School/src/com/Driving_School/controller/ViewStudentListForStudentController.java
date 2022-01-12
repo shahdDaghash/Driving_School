@@ -153,9 +153,8 @@ public class ViewStudentListForStudentController implements Initializable {
 	void openStudentRecord(ActionEvent event) throws IOException, SQLException {
 		Student selected = ViewStudents.getSelectionModel().getSelectedItem();
 		if (selected == null) {
-			errorMessage.setText("Please Select a row!");
+			JOptionPane.showInternalMessageDialog(null, "Please Select a row!");
 		} else {
-			errorMessage.setText("");
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Driving_School/view/StudentInformation.fxml"));
 			Parent root = loader.load();
 			Scene scene = new Scene(root);
