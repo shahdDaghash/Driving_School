@@ -36,6 +36,9 @@ public class AddStudentController implements Initializable{
     private TextField emp_name;
 
     @FXML
+    private String license_type;
+    
+    @FXML
     private TextField eye_test_date;
 
     @FXML
@@ -61,12 +64,13 @@ public class AddStudentController implements Initializable{
     @FXML
     private ChoiceBox<String> LicenseType ;
     
-    ObservableList<String> types = FXCollections.observableArrayList("private","taxi","trella");
+    ObservableList<String> types = FXCollections.observableArrayList("Private","Taxi","Trella","Light Truck","Heavy Truck","Bus");
     
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
     	LicenseType.setItems(types);
+    	
 	}
     @FXML
     void ShowTrainers(ActionEvent event) throws IOException {
@@ -89,8 +93,13 @@ public class AddStudentController implements Initializable{
     	String mobile = mobile_num.getText().toString();
     	String studentAddress = address.getText().toString();
     	String eyeTestDate = eye_test_date.getText().toString();
+    	
     	String studentProgress = "";
-    	String emp = "";
+    	
+    	String emp =  emp_name.getText().toString();
+    	
+    	
+    	
     	if(dropped_off.isSelected()) {
     		studentProgress = "Dropped Off";
     	}else if(graduted.isSelected()) {
@@ -103,20 +112,27 @@ public class AddStudentController implements Initializable{
     	 * Choose trainer 
     	 * 
     	 */
-    	
-    	String sql = "insert into student (student_id,first_name,last_name,mobile_num,eye_test_date,address,process_status,emp_id)values(?,?,?,?,?,?,?,? )";
+    	license_type=LicenseType.getValue();
+    
+    	String sql = "insert into student (student_id,first_name,last_name,mobile_num,eye_test_date,address,process_status,license,emp_id)values(?,?,?,?,?,?,?,?,? )";
 		Connection conn = com.Driving_School.model.MySQLConnect.getConn();
 		PreparedStatement pst;
 		try {
 			pst = conn.prepareStatement(sql);
+			
 			pst.setString(1, studentId);
+			
+			
 			pst.setString(2, firstName);
 			pst.setString(3, lastName);
 			pst.setString(4, mobile);
 			pst.setString(5, eyeTestDate);
 			pst.setString(6, studentAddress);
 			pst.setString(7, studentProgress);
-			pst.setString(8, emp);
+			pst.setString(8, license_type);
+	
+			pst.setString(9, emp);
+			
 			pst.execute();
 			JOptionPane.showMessageDialog(null, "Student Add success");
 			clear();
@@ -134,6 +150,7 @@ public class AddStudentController implements Initializable{
     	student_id.clear();
     	eye_test_date.clear();
     	first_name.clear();
+    
     	emp_name.clear();
     }
 

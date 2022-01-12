@@ -77,7 +77,7 @@
                   <Font name="Arial Rounded MT Bold" size="24.0" />
                </font>
             </Label>
-            <RadioButton fx:id="trainer" layoutX="620.0" layoutY="375.0" mnemonicParsing="false" text="Trainer" textFill="WHITE">
+            <RadioButton fx:id="trainer" layoutX="620.0" layoutY="365.0" mnemonicParsing="false" text="Trainer" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="24.0" />
                </font>
@@ -85,7 +85,7 @@
                   <ToggleGroup fx:id="role" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="secretary" layoutX="780.0" layoutY="375.0" mnemonicParsing="false" text="Secretary" textFill="WHITE" toggleGroup="$role">
+            <RadioButton fx:id="secretary" layoutX="780.0" layoutY="365.0" mnemonicParsing="false" text="Secretary" textFill="WHITE" toggleGroup="$role">
                <font>
                   <Font name="Arial Rounded MT Bold" size="24.0" />
                </font>

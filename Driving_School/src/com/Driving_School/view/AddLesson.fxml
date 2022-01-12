@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #1b83cd;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -58,7 +57,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <TextField fx:id="lessonDate1" layoutX="501.0" layoutY="121.0" prefHeight="52.0" prefWidth="213.0" promptText="Date" />
+            <TextField fx:id="vehicle" layoutX="501.0" layoutY="121.0" prefHeight="52.0" prefWidth="213.0" promptText="Vehicle" />
+            <Label layoutX="282.0" layoutY="204.0" prefHeight="53.0" prefWidth="173.0" text="Lesson Date" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="24.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </center>
