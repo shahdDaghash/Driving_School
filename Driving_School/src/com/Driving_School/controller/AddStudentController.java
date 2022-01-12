@@ -1,24 +1,30 @@
 package com.Driving_School.controller;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class AddStudentController {
+public class AddStudentController implements Initializable{
 
     @FXML
     private TextField address;
@@ -52,7 +58,16 @@ public class AddStudentController {
 
     @FXML
     private TextField student_id;
-
+    @FXML
+    private ChoiceBox<String> LicenseType ;
+    
+    ObservableList<String> types = FXCollections.observableArrayList("private","taxi","trella");
+    
+    @Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+    	LicenseType.setItems(types);
+	}
     @FXML
     void ShowTrainers(ActionEvent event) throws IOException {
     		//open new page 
@@ -121,5 +136,7 @@ public class AddStudentController {
     	first_name.clear();
     	emp_name.clear();
     }
+
+	
 
 }
