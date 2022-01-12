@@ -63,9 +63,7 @@ public class AddStudentController {
     	  primaryStage.setScene(scene);
     	  primaryStage.initModality(Modality.WINDOW_MODAL);
     	  primaryStage.setResizable(false);
-    	  primaryStage.show();
-    	  
-    
+    	  primaryStage.show();   
     }
 
     @FXML
@@ -91,7 +89,7 @@ public class AddStudentController {
     	 * 
     	 */
     	
-    	String sql = "insert into student (student_id,first_name,last_name,mobile_num,eye_test_date,address,process_status,emp_id)values(?,?,?,?,? )";
+    	String sql = "insert into student (student_id,first_name,last_name,mobile_num,eye_test_date,address,process_status,emp_id)values(?,?,?,?,?,?,?,? )";
 		Connection conn = com.Driving_School.model.MySQLConnect.getConn();
 		PreparedStatement pst;
 		try {

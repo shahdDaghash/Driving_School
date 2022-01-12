@@ -18,16 +18,13 @@ public class Main extends Application {
 		try {
 			stg = primaryStage;
 			primaryStage.setResizable(false);
-			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("/com/Driving_School/view/LogIn.fxml"));
+			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("/com/Driving_School/view/AddNewStudent.fxml"));
 			Scene scene = new Scene(root,1300,800); 
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			com.Driving_School.model.MySQLConnect.connectDb();
 			primaryStage.setTitle("Al-Aqsa Driving School");
 			primaryStage.show();
-			
-			
-			System.out.println("test");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
