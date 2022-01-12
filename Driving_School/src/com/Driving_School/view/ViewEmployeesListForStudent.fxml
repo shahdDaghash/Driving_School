@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="458.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Driving_School.controller.ViewStudentListController">                
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="458.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Driving_School.controller.ViewEmployeesListForStudentController">
    <children>
-      <TableView fx:id="ViewStudents" layoutX="39.0" layoutY="67.0" prefHeight="392.0" prefWidth="380.0">
+      <TableView fx:id="ViewEmployees" layoutX="39.0" layoutY="67.0" prefHeight="392.0" prefWidth="380.0">
          <columns>
-            <TableColumn fx:id="student_id" prefWidth="125.5" text="SSN" />
+            <TableColumn fx:id="emp_id" prefWidth="125.5" text="SSN" />
             <TableColumn fx:id="first_name" prefWidth="125.5" text="First name" />
             <TableColumn fx:id="last_name" prefWidth="125.5" text="Last name" />
          </columns>
@@ -23,15 +23,15 @@
             <Font name="Arial Rounded MT Bold" size="16.0" />
          </font>
       </Label>
-      <Button layoutX="269.0" layoutY="474.0" mnemonicParsing="false" onAction="#openStudentRecord" prefWidth="150.0" text="ADD">
+      <Button layoutX="269.0" layoutY="474.0" mnemonicParsing="false" onAction="#changeTrainer" prefWidth="150.0" text="Change">
          <font>
             <Font name="Arial Rounded MT Bold" size="20.0" />
          </font>
       </Button>
-      <Label fx:id="errorMessage" layoutX="39.0" layoutY="483.0" textFill="RED">
+      <Button layoutX="39.0" layoutY="475.0" mnemonicParsing="false" onAction="#cancelTrainerSelection" prefWidth="150.0" text="Cancel">
          <font>
-            <Font name="Arial Rounded MT Bold" size="16.0" />
+            <Font name="Arial Rounded MT Bold" size="20.0" />
          </font>
-      </Label>
+      </Button>
    </children>
 </AnchorPane>

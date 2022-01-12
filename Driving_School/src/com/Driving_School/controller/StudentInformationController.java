@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.concurrent.TimeUnit;
 
+import javax.swing.JOptionPane;
+
 import com.Driving_School.model.MySQLConnect;
 import com.Driving_School.model.Student;
 
@@ -22,10 +24,11 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class StudentInformationController {
 
-	Stage stg;
+	Student stu;
 
 	@FXML
 	private Label address_label;
@@ -62,7 +65,14 @@ public class StudentInformationController {
 
 	@FXML
 	private Label trainer_name_label;
-
+	
+	@FXML
+	private Label tests_label;
+	
+    @FXML
+    private Label lessons_taken_label;
+	
+	
 	public StudentInformationController() {
 		this.address_label = new Label();
 		this.eye_test_date_label = new Label();
@@ -76,71 +86,106 @@ public class StudentInformationController {
 		this.student_id_label = new Label();
 		this.trainer_id_label = new Label();
 		this.trainer_name_label = new Label();
+		this.tests_label = new Label();
+		this.lessons_taken_label = new Label();
 	}
 
 	@FXML
 	void openStudentTable(ActionEvent event) throws IOException, InterruptedException {
-		Parent root = FXMLLoader.load(getClass().getResource("/com/Driving_School/view/ViewStudentList.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Driving_School/view/ViewStudentListForStudent.fxml"));
+		Parent root = loader.load();
 		Scene scene = new Scene(root);
 		Stage primaryStage = new Stage();
-		primaryStage.setTitle("Select Student Record");
+		primaryStage.setTitle("Al-Aqsa Driving School");
 		primaryStage.setScene(scene);
 		primaryStage.initModality(Modality.WINDOW_MODAL);
 		primaryStage.setResizable(false);
 		primaryStage.show();
+
+		ViewStudentListForStudentController cont = loader.getController();
+		cont.c_stu = stu;
 
 		final Node source = (Node) event.getSource();
 		final Stage stage2 = (Stage) source.getScene().getWindow();
 		stage2.close();
+		
 	}
 
+	
 	public void showInformation(Student st) throws SQLException {
-
-		student_id_label.setText(st.getStudent_id());
-		first_name_label.setText(st.getFirst_name());
-		last_name_label.setText(st.getLast_name());
-		mobile_num_label.setText(st.getMobile_num());
-		address_label.setText(st.getAddress());
-		//!return to license type
-		process_status_label.setText(st.getProcess_status());
-		eye_test_date_label.setText(st.getEye_test_date());
 		
-		
-		trainer_id_label.setText(st.getEmp_id());
-		Connection conn = MySQLConnect.connectDb();
-		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select first_name, last_name from employee where employee.emp_id = '"+ st.getEmp_id() + "';");
-		rs.next();
-		trainer_name_label.setText(rs.getString("first_name")+ " " + rs.getString("last_name"));
-		
-		
-		ResultSet rs2 = stmt.executeQuery("select p.payment_date from payments p where p.student_id = '"+ st.getStudent_id() + "';");
-		while(rs2.next()) {
-			System.out.println(rs2.getString("payment_date"));
+		if(st != null){
+			student_id_label.setText(st.getStudent_id());
+			first_name_label.setText(st.getFirst_name());
+			last_name_label.setText(st.getLast_name());
+			mobile_num_label.setText(st.getMobile_num());
+			address_label.setText(st.getAddress());
+			liscence_type_label.setText(st.getLicense());
+			process_status_label.setText(st.getProcess_status());
+			eye_test_date_label.setText(st.getEye_test_date());
+			tests_label.setText(st.getTest_taken()+ " ");
+			
+			
+			trainer_id_label.setText(st.getEmp_id());
+			Connection conn = MySQLConnect.connectDb();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("select first_name, last_name from employee where employee.emp_id = '"+ st.getEmp_id() + "';");
+			rs.next();
+			trainer_name_label.setText(rs.getString("first_name")+ " " + rs.getString("last_name"));
+			
+			
+			
+			//!return to payments
+			
+			conn = MySQLConnect.connectDb();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("select COUNT(student_id) from vehicle_student where student_id = "+ st.getStudent_id() +" ;");
+			rs.next();
+			lessons_taken_label.setText(rs.getString(1));
+			
+			//!return to last lesson date
+			
+			//!return to number of lessons taken
+			
+			//!!!!!update this function in the other class
+			
 		}
-		//!return to payments
 		
-		
-		//!return to last lesson date
+		stu = st;
 		
 	}
 
 	@FXML
-	void updateStudentRecord(MouseEvent event) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/com/Driving_School/view/ModifyStudent.fxml"));
+	void updateStudentRecord(ActionEvent event) throws IOException, SQLException {
+		
+		if(stu == null) {
+			JOptionPane.showInternalMessageDialog(null, "You must select a record first!");
+			return;
+		}
+		
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Driving_School/view/ModifyStudent.fxml"));
+		Parent root = loader.load();
 		Scene scene = new Scene(root);
 		Stage primaryStage = new Stage();
-		primaryStage.setTitle("Update Student Record");
+		primaryStage.setTitle("Al-Aqsa Driving School - Update Student Record");
 		primaryStage.setScene(scene);
 		primaryStage.initModality(Modality.WINDOW_MODAL);
 		primaryStage.setResizable(false);
 		primaryStage.show();
 
-//		final Node source = (Node) event.getSource();
-//		final Stage stage2 = (Stage) source.getScene().getWindow();
-//		stage2.close();
-	}
+		ModifyStudentController msc = loader.getController();
 
+		final Node source = (Node) event.getSource();
+		final Stage stage2 = (Stage) source.getScene().getWindow();
+		stage2.close();
+		
+		//send student chosen
+		msc.showInformation(stu);
+		
+	}
+	
+	
+	//return after doing employee page
 	@FXML
 	void viewTrainerInfo(MouseEvent event) {
 

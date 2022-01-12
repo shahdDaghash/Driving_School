@@ -26,7 +26,7 @@ public class MySQLConnect {
 		try{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivingschool1", "root", "root");
-			 //JOptionPane.showInternalMessageDialog(null, "ConnectionEstablished");
+//			 JOptionPane.showInternalMessageDialog(null, "ConnectionEstablished");
 			 return conn;
 		} catch (Exception e) {
 			// TODO: handle exception

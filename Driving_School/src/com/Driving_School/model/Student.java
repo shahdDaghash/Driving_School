@@ -10,19 +10,14 @@ public class Student {
 	String eye_test_date;
 	String address;
 	String process_status;
+	String license;
+	int test_taken;
 	String emp_id;
-	/**
-	 * @param student_id
-	 * @param first_name
-	 * @param last_name
-	 * @param mobile_num
-	 * @param eye_test_date
-	 * @param address
-	 * @param process_status
-	 * @param emp_id
-	 */
-	public Student(String student_id, String first_name, String last_name, String mobile_num, String eye_test_date, String address, String process_status, String emp_id) {
-		super();
+
+	
+	
+	public Student(String student_id, String first_name, String last_name, String mobile_num, String eye_test_date, String address, String process_status, String license, int test_taken, String emp_id) {
+		super(); 
 		this.student_id = student_id;
 		this.first_name = first_name;
 		this.last_name = last_name;
@@ -30,6 +25,8 @@ public class Student {
 		this.eye_test_date = eye_test_date;
 		this.address = address;
 		this.process_status = process_status;
+		this.license = license;
+		this.test_taken = test_taken;
 		this.emp_id = emp_id;
 	}
 	
@@ -109,6 +106,22 @@ public class Student {
 
 	public void setEmp_id(String emp_id) {
 		this.emp_id = emp_id;
+	}
+
+	public String getLicense() {
+		return license;
+	}
+
+	public void setLicense(String license) {
+		this.license = license;
+	}
+
+	public int getTest_taken() {
+		return test_taken;
+	}
+
+	public void setTest_taken(int test_taken) {
+		this.test_taken = test_taken;
 	}
 	
 	
