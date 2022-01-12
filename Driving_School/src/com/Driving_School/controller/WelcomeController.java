@@ -48,6 +48,46 @@ public class WelcomeController implements Initializable {
 	}
 	
 	@FXML
+	void info(ActionEvent event) {
+		 loadPage("info");
+	}
+	
+	 @FXML
+	 void Add_e(ActionEvent event) {
+		 loadPage("AddNewEmployee");
+	 }
+
+	 @FXML
+	 void Add_L(ActionEvent event) {
+		 loadPage("AddNewEmployee");
+	 }
+
+	 @FXML
+	 void Add_s(ActionEvent event) {
+		 loadPage("AddNewEmployee");
+	 }
+
+	 @FXML
+	 void Add_v(ActionEvent event) {
+		 loadPage("AddNewEmployee");
+	 }
+
+	 @FXML
+	 void view_e(ActionEvent event) {
+		 loadPage("enterPay");
+	 }
+
+	 @FXML
+	 void view_s(ActionEvent event) {
+		 loadPage("enterPay");
+	 }
+
+	 @FXML
+	 void view_v(ActionEvent event) {
+		 loadPage("enterPay");
+	 }
+	
+	@FXML
 	public void OpenHome(ActionEvent event) {
 		bp.setCenter(ap);	
 	}
@@ -61,7 +101,7 @@ public class WelcomeController implements Initializable {
 	
 	@FXML
 	private void OpenStudent(ActionEvent event) {
-		loadPage("ViewStudents");
+		loadPage("enterPay");
 		
 	}
 	
