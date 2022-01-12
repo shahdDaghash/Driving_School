@@ -129,19 +129,33 @@ public class StudentInformationController {
 			trainer_name_label.setText(rs.getString("first_name")+ " " + rs.getString("last_name"));
 			
 			
-			
-			//!return to payments
-			
 			conn = MySQLConnect.connectDb();
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("select COUNT(student_id) from vehicle_student where student_id = "+ st.getStudent_id() +" ;");
 			rs.next();
 			lessons_taken_label.setText(rs.getString(1));
 			
-			//!return to last lesson date
+			
+			conn = MySQLConnect.connectDb();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("select vs.lesson_date from vehicle_student vs where vs.student_id = " + st.getStudent_id() + " order by vs.lesson_id asc");
+			String lastDate = "None";
+			while(rs.next()) {
+				lastDate = rs.getString("lesson_date");
+			}
+			
+			last_lesson_label.setText(lastDate);
 			
 			
-			//!!!!!update this function in the other class
+			conn = MySQLConnect.connectDb();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("select p.payment_date from payments p where p.student_id = " + st.getStudent_id() + " order by p.payment_id asc");
+			lastDate = "None";
+			while(rs.next()) {
+				lastDate = rs.getString("payment_date");
+			}
+			
+			last_payment_label.setText(lastDate);
 			
 		}
 		

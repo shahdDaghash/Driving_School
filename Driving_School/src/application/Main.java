@@ -21,7 +21,7 @@ public class Main extends Application {
 			primaryStage.setResizable(false);
 			//BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("/com/Driving_School/view/LogIn.fxml"));
 			
-			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/com/Driving_School/view/EmployeeInformation.fxml"));
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/com/Driving_School/view/StudentInformation.fxml"));
 			Scene scene = new Scene(root,1300,800);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
