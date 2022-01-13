@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #1b83cd;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="256.0" layoutY="65.0" text="Add New Lesson" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="60.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="student" layoutX="500.0" layoutY="47.0" prefHeight="52.0" prefWidth="213.0" promptText="Student" />
+            <Button layoutX="556.0" layoutY="313.0" mnemonicParsing="false" onAction="#addLesson" prefHeight="53.0" prefWidth="102.0" style="-fx-background-color: white;" text="Add" textFill="#1b83cd">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="22.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="368.0" layoutY="313.0" mnemonicParsing="false" onAction="#clearFileds" prefHeight="53.0" prefWidth="102.0" style="-fx-background-color: red;" text="Clear" textFill="#f8f8f8">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="22.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="260.0" layoutY="46.0" mnemonicParsing="false" onAction="#chooseStudent" prefHeight="53.0" prefWidth="216.0" style="-fx-background-color: white;" text="Choose Student" textFill="#1b83cd">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="22.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <TextField fx:id="lessonDate" layoutX="500.0" layoutY="204.0" prefHeight="52.0" prefWidth="213.0" promptText="Date" />
+            <Button layoutX="260.0" layoutY="120.0" mnemonicParsing="false" onAction="#chooseVehicle" prefHeight="53.0" prefWidth="216.0" style="-fx-background-color: white;" text="Choose Vehicle " textFill="#1b83cd">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="22.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <TextField fx:id="vehicle" layoutX="501.0" layoutY="121.0" prefHeight="52.0" prefWidth="213.0" promptText="Vehicle" />
+            <Label layoutX="282.0" layoutY="204.0" prefHeight="53.0" prefWidth="173.0" text="Lesson Date" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
