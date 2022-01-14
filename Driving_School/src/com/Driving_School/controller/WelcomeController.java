@@ -48,9 +48,10 @@ public class WelcomeController implements Initializable {
 	}
 	
 	@FXML
-	void info(ActionEvent event) {
-		 loadPage("info");
+	public void OpenHome(ActionEvent event) {
+		bp.setCenter(ap);	
 	}
+	
 	
 	 @FXML
 	 void Add_e(ActionEvent event) {
@@ -59,59 +60,48 @@ public class WelcomeController implements Initializable {
 
 	 @FXML
 	 void Add_L(ActionEvent event) {
-		 loadPage("AddNewEmployee");
+		 loadPage("AddLesson");
 	 }
 
 	 @FXML
 	 void Add_s(ActionEvent event) {
-		 loadPage("AddNewEmployee");
+		 loadPage("AddNewStudent");
 	 }
 
 	 @FXML
 	 void Add_v(ActionEvent event) {
-		 loadPage("AddNewEmployee");
+		 loadPage("AddVehicle");
 	 }
 
 	 @FXML
 	 void view_e(ActionEvent event) {
-		 loadPage("enterPay");
+		 loadPage("EmployeeInformation");
 	 }
 
 	 @FXML
 	 void view_s(ActionEvent event) {
-		 loadPage("enterPay");
-	 }
+		 loadPage("StudentInformation");
+	}
 
+	
 	 @FXML
-	 void view_v(ActionEvent event) {
-		 loadPage("enterPay");
+	 private void OpenPayments(ActionEvent event) {
+		 loadPage("Payments");
+		
 	 }
 	
-	@FXML
-	public void OpenHome(ActionEvent event) {
-		bp.setCenter(ap);	
-	}
-	
-	
-	@FXML
-	private void OpenEmployee(ActionEvent event) {
-		loadPage("AddNewEmployee");
+	 @FXML
+	 private void EnterPay(ActionEvent event) {
+		 loadPage("enterPay");
 		
-	}
+	 }
 	
-	@FXML
-	private void OpenStudent(ActionEvent event) {
-		loadPage("enterPay");
-		
-	}
-	
-	@FXML
-	private void OpenPayments(ActionEvent event) {
-		loadPage("Payments");
-		
-	}
+	 @FXML
+	 void info(ActionEvent event) {
+	 	 loadPage("info");
+	 }
 
-	private void loadPage(String page) {
+   	 void loadPage(String page) {
 			Parent r = null;
 			try {
 				r = FXMLLoader.load(getClass().getResource("/com/Driving_School/view/"+page+".fxml"));
@@ -121,7 +111,7 @@ public class WelcomeController implements Initializable {
 			bp.setCenter(r);
 		
 
-	}
+	 }
 	
 	
 	

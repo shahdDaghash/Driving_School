@@ -20,26 +20,15 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="employee" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#OpenEmployee" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Employees" textFill="WHITE">
+            <MenuButton alignment="CENTER" layoutX="10.0" layoutY="167.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="View" textAlignment="CENTER" textFill="WHITE">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#view_e" text="Employee" />
+                  <MenuItem mnemonicParsing="false" onAction="#view_s" text="Student" />
+               </items>
                <font>
                   <Font size="15.0" />
                </font>
-            </Button>
-            <Button fx:id="student" layoutX="10.0" layoutY="49.0" mnemonicParsing="false" onAction="#OpenStudent" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Insert Payment" textFill="WHITE">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="payments" layoutX="10.0" layoutY="88.0" mnemonicParsing="false" onAction="#OpenPayments" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Payments" textFill="WHITE">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
-            <Button layoutX="10.0" layoutY="128.0" mnemonicParsing="false" onAction="#info" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="licenses type " textFill="WHITE">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
+            </MenuButton>
             <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Add" textAlignment="CENTER" textFill="WHITE">
               <items>
                 <MenuItem fx:id="e" mnemonicParsing="false" onAction="#Add_e" text="Employee" />
@@ -51,15 +40,21 @@
                   <Font size="15.0" />
                </font>
             </MenuButton>
-            <MenuButton alignment="CENTER" layoutX="10.0" layoutY="167.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="View" textAlignment="CENTER" textFill="WHITE">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#view_e" text="Employee" />
-                  <MenuItem mnemonicParsing="false" onAction="#view_s" text="Student" />
-               </items>
+            <Button fx:id="payments" layoutX="10.0" layoutY="88.0" mnemonicParsing="false" onAction="#OpenPayments" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Payments" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
-            </MenuButton>
+            </Button>
+            <Button fx:id="enterPayments" layoutX="10.0" layoutY="49.0" mnemonicParsing="false" onAction="#EnterPay" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Insert Payment" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="128.0" mnemonicParsing="false" onAction="#info" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="licenses type " textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
    </left>
