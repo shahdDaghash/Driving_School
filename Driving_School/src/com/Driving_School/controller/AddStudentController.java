@@ -4,10 +4,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
+
+import com.Driving_School.model.MySQLConnect;
+import com.Driving_School.model.Student;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,6 +31,8 @@ import javafx.stage.Stage;
 
 public class AddStudentController implements Initializable{
 
+	Student stu = new Student();
+	
     @FXML
     private TextField address;
 
@@ -72,17 +79,21 @@ public class AddStudentController implements Initializable{
     	LicenseType.setItems(types);
     	
 	}
+    
     @FXML
     void ShowTrainers(ActionEvent event) throws IOException {
-    		//open new page 
-    	  Parent root = FXMLLoader.load(getClass().getResource("/com/Driving_School/view/ShowTrainers.fxml"));
-    	  Scene scene = new Scene(root);
-    	  Stage primaryStage = new Stage();
-    	  primaryStage.setTitle("Trainers");
-    	  primaryStage.setScene(scene);
-    	  primaryStage.initModality(Modality.WINDOW_MODAL);
-    	  primaryStage.setResizable(false);
-    	  primaryStage.show();   
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Driving_School/view/ViewTrainersList.fxml"));
+    		Parent root = loader.load();
+    		Scene scene = new Scene(root);
+    		Stage primaryStage = new Stage();
+    		primaryStage.setTitle("Al-Aqsa Driving School");
+    		primaryStage.setScene(scene);
+    		primaryStage.initModality(Modality.WINDOW_MODAL);
+    		primaryStage.setResizable(false);
+    		primaryStage.show();
+    		ViewTrainersListController cont = loader.getController();
+    		cont.c_stu = stu;
+    		cont.msc = this;
     }
 
     @FXML
@@ -93,12 +104,8 @@ public class AddStudentController implements Initializable{
     	String mobile = mobile_num.getText().toString();
     	String studentAddress = address.getText().toString();
     	String eyeTestDate = eye_test_date.getText().toString();
-    	
     	String studentProgress = "";
-    	
-    	String emp =  emp_name.getText().toString();
-    	
-    	
+    	license_type=LicenseType.getValue();
     	
     	if(dropped_off.isSelected()) {
     		studentProgress = "Dropped Off";
@@ -107,12 +114,18 @@ public class AddStudentController implements Initializable{
     	}else {
     		studentProgress = "In Progress";
     	}
+  
     	
-    	/*
-    	 * Choose trainer 
-    	 * 
-    	 */
-    	license_type=LicenseType.getValue();
+ 
+    	stu.setStudent_id(studentId);
+    	stu.setFirst_name(firstName);
+    	stu.setLast_name(lastName);
+    	stu.setMobile_num(mobile);
+    	stu.setAddress(studentAddress);
+    	stu.setEye_test_date(eyeTestDate);
+    	stu.setProcess_status(studentProgress);
+    	stu.setLicense(license_type);
+   
     
     	String sql = "insert into student (student_id,first_name,last_name,mobile_num,eye_test_date,address,process_status,license,emp_id)values(?,?,?,?,?,?,?,?,? )";
 		Connection conn = com.Driving_School.model.MySQLConnect.getConn();
@@ -121,8 +134,6 @@ public class AddStudentController implements Initializable{
 			pst = conn.prepareStatement(sql);
 			
 			pst.setString(1, studentId);
-			
-			
 			pst.setString(2, firstName);
 			pst.setString(3, lastName);
 			pst.setString(4, mobile);
@@ -130,9 +141,7 @@ public class AddStudentController implements Initializable{
 			pst.setString(6, studentAddress);
 			pst.setString(7, studentProgress);
 			pst.setString(8, license_type);
-	
-			pst.setString(9, emp);
-			
+			pst.setString(9, stu.getEmp_id());
 			pst.execute();
 			JOptionPane.showMessageDialog(null, "Student Add success");
 			clear();
@@ -150,10 +159,18 @@ public class AddStudentController implements Initializable{
     	student_id.clear();
     	eye_test_date.clear();
     	first_name.clear();
-    
     	emp_name.clear();
     }
 
+	public void showInformation(Student st) throws SQLException {
+		stu.setEmp_id(st.getEmp_id());
 	
+		Connection conn = MySQLConnect.connectDb();
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("select first_name, last_name from employee where employee.emp_id = '"+ st.getEmp_id() + "';");
+		rs.next();
+		emp_name.setText(rs.getString("first_name")+ " " + rs.getString("last_name"));
+		
+	}
 
 }

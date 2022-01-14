@@ -6,6 +6,8 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
+import com.Driving_School.model.Vehicle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -21,13 +23,15 @@ public class AddVehicleController {
     @FXML
     void addVehicle(ActionEvent event) {
     	String insuranceDate = insuranceEndDate.getText().toString();
-		String vehicle = vehicleNum.getText().toString();
+		String vehicle_num = vehicleNum.getText().toString();
+		
+		 
 		String sql = "insert into vehicle (vehicle_num,insurance_end_date)values(?,?)";
 		Connection conn = com.Driving_School.model.MySQLConnect.getConn();
 		PreparedStatement pst;
 		try {
 			pst = conn.prepareStatement(sql);
-			pst.setString(1, vehicle);
+			pst.setString(1, vehicle_num);
 			pst.setString(2, insuranceDate);
 			pst.execute();
 			JOptionPane.showMessageDialog(null, "Vehicle Add success");
