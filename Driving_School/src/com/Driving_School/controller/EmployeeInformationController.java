@@ -14,7 +14,6 @@ import com.Driving_School.model.MySQLConnect;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -68,10 +67,7 @@ public class EmployeeInformationController {
 		
 		ViewEmployeeListForEmployeeController cont = loader.getController();
 		cont.c_emp = emp;
-    	
-		final Node source = (Node) event.getSource();
-		final Stage stage2 = (Stage) source.getScene().getWindow();
-		stage2.close();
+		cont.eic = this;
     }
     
     
@@ -136,11 +132,8 @@ public class EmployeeInformationController {
 		
 		ModifyEmployeeController mec = loader.getController();
 		
-		final Node source = (Node) event.getSource();
-		final Stage stage2 = (Stage) source.getScene().getWindow();
-		stage2.close();
-		
 		mec.showInformation(emp);
+		mec.eic = this;
     }
 
 }

@@ -14,7 +14,6 @@ import com.Driving_School.model.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -99,10 +98,7 @@ public class StudentInformationController {
 
 		ViewStudentListForStudentController cont = loader.getController();
 		cont.c_stu = stu;
-
-		final Node source = (Node) event.getSource();
-		final Stage stage2 = (Stage) source.getScene().getWindow();
-		stage2.close();
+		cont.sic = this;
 		
 	}
 
@@ -171,6 +167,7 @@ public class StudentInformationController {
 			return;
 		}
 		
+		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Driving_School/view/ModifyStudent.fxml"));
 		Parent root = loader.load();
 		Scene scene = new Scene(root);
@@ -182,12 +179,8 @@ public class StudentInformationController {
 		primaryStage.show();
 
 		ModifyStudentController msc = loader.getController();
+		msc.sic = this;
 
-		final Node source = (Node) event.getSource();
-		final Stage stage2 = (Stage) source.getScene().getWindow();
-		stage2.close();
-		
-		//send student chosen
 		msc.showInformation(stu);
 		
 	}

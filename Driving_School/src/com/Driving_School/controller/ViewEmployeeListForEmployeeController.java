@@ -18,22 +18,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class ViewEmployeeListForEmployeeController implements Initializable {
 
 	Employee c_emp;
+	EmployeeInformationController eic;
 	
 	@FXML
 	private TableView<Employee> ViewEmployees;
@@ -101,22 +98,11 @@ public class ViewEmployeeListForEmployeeController implements Initializable {
 
 	@FXML
 	void cancelSelection(ActionEvent event) throws IOException, SQLException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Driving_School/view/EmployeeInformation.fxml"));
-		Parent root = loader.load();
-		Scene scene = new Scene(root);
-		Stage primaryStage = new Stage();
-		primaryStage.setTitle("Al-Aqsa Driving School");
-		primaryStage.setScene(scene);
-		primaryStage.initModality(Modality.WINDOW_MODAL);
-		primaryStage.setResizable(false);
-		primaryStage.show();
-		
 		final Node source = (Node) event.getSource();
 		final Stage stage2 = (Stage) source.getScene().getWindow();
 		stage2.close();
 		
-		EmployeeInformationController cont = loader.getController();
-		cont.showInformation(c_emp);
+		eic.showInformation(c_emp);
 
 	}
 
@@ -157,23 +143,11 @@ public class ViewEmployeeListForEmployeeController implements Initializable {
 		if (selected == null) {
 			JOptionPane.showInternalMessageDialog(null, "Please Select a row!");
 		} else {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Driving_School/view/EmployeeInformation.fxml"));
-			Parent root = loader.load();
-			Scene scene = new Scene(root);
-			Stage primaryStage = new Stage();
-			primaryStage.setTitle("Al-Aqsa Driving School");
-			primaryStage.setScene(scene);
-			primaryStage.initModality(Modality.WINDOW_MODAL);
-			primaryStage.setResizable(false);
-			primaryStage.show();
-
-			EmployeeInformationController cont = loader.getController();
-
 			final Node source = (Node) event.getSource();
 			final Stage stage2 = (Stage) source.getScene().getWindow();
 			stage2.close();
 
-			cont.showInformation(selected);
+			eic.showInformation(selected);
 			c_emp = selected;
 
 		}
