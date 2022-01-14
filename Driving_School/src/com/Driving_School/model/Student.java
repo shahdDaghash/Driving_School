@@ -2,6 +2,7 @@ package com.Driving_School.model;
 
 
 public class Student {
+	
 	String student_id;
 	String first_name;
 	String last_name;
@@ -14,7 +15,9 @@ public class Student {
 	String emp_id;
 
 	
-	
+	public Student() {
+		
+	}
 	public Student(String student_id, String first_name, String last_name, String mobile_num, String eye_test_date, String address, String process_status, String license, int test_taken, String emp_id) {
 		super(); 
 		this.student_id = student_id;
@@ -29,19 +32,7 @@ public class Student {
 		this.emp_id = emp_id;
 	}
 	
-//	public Student(String student_id, String first_name, String last_name, String mobile_num, String eye_test_date, String address, String process_state) {
-//		super();
-//		this.student_id = student_id;
-//		this.first_name = first_name;
-//		this.last_name = last_name;
-//		this.mobile_num = mobile_num;
-//		this.eye_test_date = eye_test_date;
-//		this.address = address;
-//		this.process_state = process_state;
-//		//this.emp_id = emp_id;
-//	}
-	
-	
+
 
 	public String getStudent_id() {
 		return student_id;
