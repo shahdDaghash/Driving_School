@@ -4,14 +4,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,6 +22,7 @@ import com.Driving_School.model.*;
 public class ViewStudentListForStudentController implements Initializable {
 	
 	Student c_stu;
+	StudentInformationController sic;
 	
 	@FXML
 	private TableView<Student> ViewStudents;
@@ -98,22 +95,11 @@ public class ViewStudentListForStudentController implements Initializable {
 	
     @FXML
     void cancelSelection(ActionEvent event) throws SQLException, IOException {
-    	
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Driving_School/view/StudentInformation.fxml"));
-		Parent root = loader.load();
-		Scene scene = new Scene(root);
-		Stage primaryStage = new Stage();
-		primaryStage.setTitle("Al-Aqsa Driving School");
-		primaryStage.setScene(scene);
-		primaryStage.initModality(Modality.WINDOW_MODAL);
-		primaryStage.setResizable(false);
-		primaryStage.show();
-		
 		final Node source = (Node) event.getSource();
 		final Stage stage2 = (Stage) source.getScene().getWindow();
 		stage2.close();
-		StudentInformationController cont = loader.getController();
-		cont.showInformation(c_stu);
+
+		sic.showInformation(c_stu);
 		
 		
     }
@@ -155,23 +141,11 @@ public class ViewStudentListForStudentController implements Initializable {
 		if (selected == null) {
 			JOptionPane.showInternalMessageDialog(null, "Please Select a row!");
 		} else {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Driving_School/view/StudentInformation.fxml"));
-			Parent root = loader.load();
-			Scene scene = new Scene(root);
-			Stage primaryStage = new Stage();
-			primaryStage.setTitle("Al-Aqsa Driving School");
-			primaryStage.setScene(scene);
-			primaryStage.initModality(Modality.WINDOW_MODAL);
-			primaryStage.setResizable(false);
-			primaryStage.show();
-
-			StudentInformationController cont = loader.getController();
-
 			final Node source = (Node) event.getSource();
 			final Stage stage2 = (Stage) source.getScene().getWindow();
 			stage2.close();
 
-			cont.showInformation(selected);
+			sic.showInformation(selected);
 			c_stu = selected;
 
 		}

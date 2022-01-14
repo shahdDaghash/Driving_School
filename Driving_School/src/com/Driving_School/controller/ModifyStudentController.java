@@ -27,6 +27,7 @@ import javafx.stage.Stage;
 public class ModifyStudentController {
 
 	Student stu;
+	StudentInformationController sic;
 
 	@FXML
 	private TextField address_txt;
@@ -83,11 +84,8 @@ public class ModifyStudentController {
 
 		ViewEmployeesListForStudentController cont = loader.getController();
 
-		final Node source = (Node) event.getSource();
-		final Stage stage2 = (Stage) source.getScene().getWindow();
-		stage2.close();
-
 		cont.c_stu = stu;
+		cont.msc = this;
 	}
 
 	@FXML
@@ -120,23 +118,12 @@ public class ModifyStudentController {
 			selected.setProcess_status(process_state_txt.getText());
 			selected.setTest_taken(Integer.parseInt(tests_txt.getText().strip()));
 
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Driving_School/view/StudentInformation.fxml"));
-			Parent root = loader.load();
-			Scene scene = new Scene(root);
-			Stage primaryStage = new Stage();
-			primaryStage.setTitle("Al-Aqsa Driving School");
-			primaryStage.setScene(scene);
-			primaryStage.initModality(Modality.WINDOW_MODAL);
-			primaryStage.setResizable(false);
-			primaryStage.show();
-
-			StudentInformationController cont = loader.getController();
-
 			final Node source = (Node) event.getSource();
 			final Stage stage2 = (Stage) source.getScene().getWindow();
 			stage2.close();
 
-			cont.showInformation(selected);
+			sic.showInformation(selected);
+			
 		} else {
 			JOptionPane.showMessageDialog(null, "No criteria to changing the id. Contact Adminstrator.");
 		}
@@ -145,23 +132,11 @@ public class ModifyStudentController {
 
 	@FXML
 	void cancelModify(ActionEvent event) throws SQLException, IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Driving_School/view/StudentInformation.fxml"));
-		Parent root = loader.load();
-		Scene scene = new Scene(root);
-		Stage primaryStage = new Stage();
-		primaryStage.setTitle("Al-Aqsa Driving School");
-		primaryStage.setScene(scene);
-		primaryStage.initModality(Modality.WINDOW_MODAL);
-		primaryStage.setResizable(false);
-		primaryStage.show();
-
-		StudentInformationController cont = loader.getController();
-
 		final Node source = (Node) event.getSource();
 		final Stage stage2 = (Stage) source.getScene().getWindow();
 		stage2.close();
 
-		cont.showInformation(stu);
+		sic.showInformation(stu);
 	}
 	
 	
@@ -187,10 +162,6 @@ public class ModifyStudentController {
 				"select first_name, last_name from employee where employee.emp_id = '" + st.getEmp_id() + "';");
 		rs.next();
 		trainer_name_label.setText(rs.getString("first_name") + " " + rs.getString("last_name"));
-
-		// !return to payments
-
-		// !return to last lesson date
 
 	}
 

@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Driving_School.controller.ModifyStudentController">
+<AnchorPane prefHeight="778.0" prefWidth="1084.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Driving_School.controller.ModifyStudentController">
    <children>
-      <AnchorPane layoutX="123.0" layoutY="79.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="1055.0" style="-fx-border-color: #D3D3D3;">
+      <AnchorPane layoutX="14.0" layoutY="72.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="1055.0" style="-fx-border-color: #D3D3D3;">
          <children>
             <HBox layoutX="30.0" layoutY="92.0" />
             <AnchorPane layoutX="72.0" layoutY="116.0" prefHeight="50.0" prefWidth="350.0">
@@ -175,9 +175,9 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <Label layoutX="473.0" layoutY="32.0" text="Modify Student Record">
+      <Label layoutX="375.0" layoutY="21.0" text="Modify Student Record">
          <font>
-            <Font name="Arial Rounded MT Bold" size="32.0" />
+            <Font name="Arial Rounded MT Bold" size="30.0" />
          </font>
       </Label>
    </children>

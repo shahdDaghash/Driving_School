@@ -13,18 +13,15 @@ import com.Driving_School.model.MySQLConnect;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class ModifyEmployeeController {
 	
 	Employee emp;
+	EmployeeInformationController eic;
 
     @FXML
     private TextField address_txt;
@@ -56,23 +53,13 @@ public class ModifyEmployeeController {
 
     @FXML
     void cancelModify(ActionEvent event) throws SQLException, IOException {
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Driving_School/view/EmployeeInformation.fxml"));
-		Parent root = loader.load();
-		Scene scene = new Scene(root);
-		Stage primaryStage = new Stage();
-		primaryStage.setTitle("Al-Aqsa Driving School");
-		primaryStage.setScene(scene);
-		primaryStage.initModality(Modality.WINDOW_MODAL);
-		primaryStage.setResizable(false);
-		primaryStage.show();
-
-		EmployeeInformationController cont = loader.getController();
+    	
 
 		final Node source = (Node) event.getSource();
 		final Stage stage2 = (Stage) source.getScene().getWindow();
 		stage2.close();
 
-		cont.showInformation(emp);
+		eic.showInformation(emp);
     }
 
     @FXML
@@ -97,23 +84,12 @@ public class ModifyEmployeeController {
 		selected.setMobile_num(mobile_num_txt.getText());
 		selected.setAddress(address_txt.getText());
 		
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Driving_School/view/EmployeeInformation.fxml"));
-		Parent root = loader.load();
-		Scene scene = new Scene(root);
-		Stage primaryStage = new Stage();
-		primaryStage.setTitle("Al-Aqsa Driving School");
-		primaryStage.setScene(scene);
-		primaryStage.initModality(Modality.WINDOW_MODAL);
-		primaryStage.setResizable(false);
-		primaryStage.show();
-		
-		EmployeeInformationController cont = loader.getController();
 
 		final Node source = (Node) event.getSource();
 		final Stage stage2 = (Stage) source.getScene().getWindow();
 		stage2.close();
 
-		cont.showInformation(selected);
+		eic.showInformation(selected);
 		
     }
     
