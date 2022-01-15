@@ -13,7 +13,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="681.0" prefWidth="893.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Driving_School.controller.PaymentsController">
    <children>
       <TextField fx:id="search_name" layoutX="146.0" layoutY="84.0" onAction="#searchbox" prefHeight="38.0" prefWidth="309.0" />
-      <Label fx:id="search_lb" layoutX="699.0" layoutY="323.0" text="Label">
+      <Label fx:id="search_lb" contentDisplay="CENTER" layoutX="699.0" layoutY="323.0">
          <font>
             <Font size="13.0" />
          </font></Label>
