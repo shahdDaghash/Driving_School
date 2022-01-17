@@ -20,13 +20,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class PaymentsController implements Initializable {
 
@@ -149,7 +153,7 @@ public class PaymentsController implements Initializable {
 		
 
 		if(selected == null) {
-			JOptionPane.showInternalMessageDialog(null, "Please Select a row!");
+			JOptionPane.showInternalMessageDialog(null, "Please Select a Student!");
 		}
 		
 		else {
@@ -165,7 +169,6 @@ public class PaymentsController implements Initializable {
 			lesson_num = rs1.getInt("lessonNum");
 		}
 		rs1.close();
-		System.out.println(lesson_num);
 		
 		ResultSet rs2 = stmt.executeQuery(sql2);
 		double lesson_price = 0;
@@ -174,7 +177,6 @@ public class PaymentsController implements Initializable {
 
 		}
 		rs2.close();
-		System.out.println(lesson_price);
 
 		ResultSet rs3 = stmt.executeQuery(sql3);
 		double payed_amount = 0;
@@ -183,7 +185,6 @@ public class PaymentsController implements Initializable {
 
 		}
 		rs3.close();
-		System.out.println(payed_amount);
 
 		ResultSet rs4 = stmt.executeQuery(sql4);
 		double test_num = 0;
@@ -192,7 +193,6 @@ public class PaymentsController implements Initializable {
 
 		}
 		rs4.close();
-		System.out.println(test_num);
 
 		
 		String sql5 = "SELECT test_price from prices where lesson_price = " + lesson_price + "";
@@ -203,7 +203,6 @@ public class PaymentsController implements Initializable {
 
 		}
 		rs5.close();
-		System.out.println(testprice);
 
 		
 		if (test_num == 1) {
@@ -215,7 +214,6 @@ public class PaymentsController implements Initializable {
 		else {
 			result = (testprice + ((testprice + 80) * (test_num - 1)) + (lesson_num * lesson_price)) - payed_amount;
 		}
-		System.out.println(result);
 
 		if(result < 0) {
 			result = (result*-1);
@@ -234,10 +232,7 @@ public class PaymentsController implements Initializable {
 
 	}
 	    
-	    @FXML
-	    void OpenEnterPay(ActionEvent event) throws Exception {
-	    	
-	    }
+	  
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

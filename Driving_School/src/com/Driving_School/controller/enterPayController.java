@@ -28,6 +28,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -127,8 +128,8 @@ public class enterPayController implements Initializable {
 	    
 	    
 	    @SuppressWarnings("unused")
-		@FXML
-	    void search(ActionEvent event) throws Exception {
+	    @FXML
+	    void search(MouseEvent event) throws Exception {
 	    	caculatedNum = 0; 
 	    	
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivingschool1", "root", "root");
@@ -136,11 +137,11 @@ public class enterPayController implements Initializable {
 
 	    	Student selected2 = table2.getSelectionModel().getSelectedItem();
 	    	
-	    	name.setText(String.valueOf(""+selected2.getFirst_name()+selected2.getLast_name())+ "");
+	    	name.setText(String.valueOf(""+selected2.getFirst_name()+" "+selected2.getLast_name())+ "");
 	    	id.setText(String.valueOf(selected2.getStudent_id()));
 	    	
 	    	if(selected2 == null) {
-				JOptionPane.showInternalMessageDialog(null, "Please Select a row!");
+				JOptionPane.showInternalMessageDialog(null, "Please Select a Student!");
 			}
 			
 			else {

@@ -10,42 +10,48 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="681.0" prefWidth="893.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Driving_School.controller.PaymentsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1160.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Driving_School.controller.PaymentsController">
    <children>
-      <TextField fx:id="search_name" layoutX="146.0" layoutY="84.0" onAction="#searchbox" prefHeight="38.0" prefWidth="309.0" />
-      <Label fx:id="search_lb" contentDisplay="CENTER" layoutX="699.0" layoutY="323.0">
-         <font>
-            <Font size="13.0" />
-         </font></Label>
-      <Button fx:id="search_btn" layoutX="478.0" layoutY="84.0" mnemonicParsing="false" onAction="#Calculate" prefHeight="38.0" prefWidth="101.0" text="Calculate">
+      <TextField fx:id="search_name" layoutX="254.0" layoutY="205.0" onAction="#searchbox" prefHeight="38.0" prefWidth="309.0" />
+      <Button fx:id="search_btn" layoutX="580.0" layoutY="205.0" mnemonicParsing="false" onAction="#Calculate" prefHeight="38.0" prefWidth="101.0" text="Calculate">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <TableView fx:id="table" layoutX="72.0" layoutY="134.0" prefHeight="476.0" prefWidth="518.0">
+      <TableView fx:id="table" layoutX="186.0" layoutY="251.0" prefHeight="476.0" prefWidth="518.0">
         <columns>
           <TableColumn fx:id="first_name" prefWidth="171.99999237060547" text="First Name" />
           <TableColumn fx:id="last_name" prefWidth="178.39996337890625" text="Family Name" />
             <TableColumn fx:id="C_id" prefWidth="168.00003051757812" text="ID" />
         </columns>
       </TableView>
-      <ImageView fitHeight="38.0" fitWidth="58.0" layoutX="86.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="38.0" fitWidth="58.0" layoutX="186.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../../Desktop/search.png" />
          </image>
       </ImageView>
-      <Label layoutX="636.0" layoutY="225.0" text="Requested Amount">
+      <Label layoutX="868.0" layoutY="337.0" text="Requested Amount">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Button layoutX="683.0" layoutY="398.0" mnemonicParsing="false" onAction="#OpenEnterPay" prefHeight="30.0" prefWidth="58.0" text="Pay">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <Label fx:id="note" alignment="CENTER" contentDisplay="CENTER" layoutX="605.0" layoutY="282.0" prefHeight="20.0" prefWidth="254.0" textAlignment="CENTER" textFill="RED">
+      <Label fx:id="note" alignment="CENTER" contentDisplay="CENTER" layoutX="822.0" layoutY="409.0" prefHeight="20.0" prefWidth="254.0" textAlignment="CENTER" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
+      <ImageView fitHeight="66.0" fitWidth="72.0" layoutX="84.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Desktop/payment.PNG" />
+         </image>
+      </ImageView>
+      <Label layoutX="151.0" layoutY="27.0" text="Payments">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="search_lb" layoutX="940.0" layoutY="450.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
