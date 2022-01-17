@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="415.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-image-width: 100;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Driving_School.controller.billController">
+   <children>
+      <Label layoutX="89.0" layoutY="45.0" prefHeight="35.0" prefWidth="255.0" text="AL-Aqsa Driving Scool">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="name" layoutX="235.0" layoutY="143.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="87.0" layoutY="143.0" prefHeight="27.0" prefWidth="67.0" text="Name :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="60.0" fitWidth="87.0" layoutX="8.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Desktop/logo.PNG" />
+         </image>
+      </ImageView>
+      <Label layoutX="99.0" layoutY="192.0" prefHeight="27.0" prefWidth="42.0" text="ID : ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="id" layoutX="235.0" layoutY="192.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="48.0" layoutY="236.0" prefHeight="27.0" prefWidth="145.0" text="payed amount : ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="amount" layoutX="235.0" layoutY="236.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="date" contentDisplay="CENTER" layoutX="256.0" layoutY="394.0" prefHeight="27.0" prefWidth="104.0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <ImageView fitHeight="105.0" fitWidth="104.0" layoutX="256.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Desktop/stamp.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

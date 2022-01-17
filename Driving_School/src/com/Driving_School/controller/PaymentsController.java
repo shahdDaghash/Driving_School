@@ -1,5 +1,6 @@
 package com.Driving_School.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,21 +15,26 @@ import javax.swing.JOptionPane;
 import com.Driving_School.model.MySQLConnect;
 import com.Driving_School.model.Student;
 
+import application.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class PaymentsController implements Initializable {
 
-	public static int result;
+	public static double result;
 
 	@FXML
 	private TableColumn<Student, String> first_name;
@@ -41,6 +47,9 @@ public class PaymentsController implements Initializable {
 
 	@FXML
 	private Button search_btn;
+	
+	@FXML
+    private Label note;
 
 	@FXML
 	private TableView<Student> table;
@@ -71,68 +80,6 @@ public class PaymentsController implements Initializable {
 
 	ObservableList<Student> listS;
 
-	
-
-//   @FXML
-//    void search_Action(ActionEvent event) throws Exception {
-//    	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivingschool1","root","root");
-//    	Statement stmt = con.createStatement();
-//    	String first_name = search_name.getText();
-//    	String family_name = search_lastname.getText();
-//    	
-//    	String sql0 = "SELECT student_id FROM student where first_name = '%"+first_name+"%' and family_name = '%"+family_name+"%' " ;
-//    	
-//    	ResultSet rs0 = stmt.executeQuery(sql0);
-//    	int id = 0;
-//    	while (rs0.next()) {
-//			id = rs0.getInt("student_id");
-//
-//	      }
-//    	rs0.close();
-//
-//    	
-//    	String sql1 = "SELECT COUNT(*) lesson_id FROM vehicle_student where student_id ="+id ;
-//    	String sql2 = "SELECT lesson_price FROM license_type where type_id = (select type_id from student_licensetype where student_id ="+id+");" ;
-//    	String sql3 = "select amount from payments where student_id ="+id ;
-//
-//    	ResultSet rs1 = stmt.executeQuery(sql1);
-//    	int lesson_num = 0;
-//    	while (rs1.next()) {
-//			lesson_num = rs1.getInt("lesson_id");
-//	
-//	      }
-//    	
-//    	rs1.close();
-//    	
-//		ResultSet rs2 = stmt.executeQuery(sql2);
-//		int lesson_price = 0;
-//		while (rs2.next()) {
-//			lesson_price = rs2.getInt("lesson_price");
-//	
-//	      }
-//		
-//		rs2.close();
-//		
-//		int payed_amount = 0;
-//		
-//		ResultSet rs3 = stmt.executeQuery(sql3);
-//		while (rs3.next()) {
-//			payed_amount = rs3.getInt("lesson_id");
-//	
-//	      }
-//		
-//		rs3.close();
-//		
-//		result = (lesson_num*lesson_price)-payed_amount;
-//    	search_lb.setText(String.valueOf((lesson_num*lesson_price)-payed_amount));
-//
-//    	
-//    	////////////////////////////
-//    	
-//    	//String names = "SELECT student_id, first_name, last_name From student where first_name  LIKE '%"+search_name.getText()+"%' ORDER BY first_name ASC;";
-//    	
-//    
-//    }
 
 	public void searchbox() throws Exception {
 
@@ -194,9 +141,11 @@ public class PaymentsController implements Initializable {
 		}
 		return list;
 	}
+	
 	    @FXML
         void Calculate(ActionEvent event) throws Exception {
 		
+	    result =0;
 		Student selected = table.getSelectionModel().getSelectedItem();
 
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/drivingschool1", "root", "root");
@@ -204,7 +153,7 @@ public class PaymentsController implements Initializable {
 		
 
 		if(selected == null) {
-			JOptionPane.showInternalMessageDialog(null, "Please Select a row!");
+			JOptionPane.showInternalMessageDialog(null, "Please Select a Student!");
 		}
 		
 		else {
@@ -215,14 +164,14 @@ public class PaymentsController implements Initializable {
 		String sql4 = "SELECT test_taken from student where student_id = " + selected.getStudent_id() + "";
 
 		ResultSet rs1 = stmt.executeQuery(sql1);
-		int lesson_num = 0;
+		double lesson_num = 0;
 		while (rs1.next()) {
 			lesson_num = rs1.getInt("lessonNum");
 		}
 		rs1.close();
-
+		
 		ResultSet rs2 = stmt.executeQuery(sql2);
-		int lesson_price = 0;
+		double lesson_price = 0;
 		while (rs2.next()) {
 			lesson_price = rs2.getInt("lesson_price");
 
@@ -230,7 +179,7 @@ public class PaymentsController implements Initializable {
 		rs2.close();
 
 		ResultSet rs3 = stmt.executeQuery(sql3);
-		int payed_amount = 0;
+		double payed_amount = 0;
 		while (rs3.next()) {
 			payed_amount = rs3.getInt("full_amount");
 
@@ -238,7 +187,7 @@ public class PaymentsController implements Initializable {
 		rs3.close();
 
 		ResultSet rs4 = stmt.executeQuery(sql4);
-		int test_num = 0;
+		double test_num = 0;
 		while (rs4.next()) {
 			test_num = rs4.getInt("test_taken");
 
@@ -248,24 +197,42 @@ public class PaymentsController implements Initializable {
 		
 		String sql5 = "SELECT test_price from prices where lesson_price = " + lesson_price + "";
 		ResultSet rs5 = stmt.executeQuery(sql5);
-		int testprice = 0;
+		double testprice = 0;
 		while (rs5.next()) {
 			testprice = rs5.getInt("test_price");
 
 		}
 		rs5.close();
 
+		
 		if (test_num == 1) {
 			result = (testprice + (lesson_num * lesson_price)) - payed_amount;
-		} else {
-			result = (testprice + (testprice + 80 * (test_num - 1)) + (lesson_num * lesson_price)) - payed_amount;
+		}
+		else if (test_num == 0) {
+			result = (lesson_num * lesson_price) - payed_amount;
+		}
+		else {
+			result = (testprice + ((testprice + 80) * (test_num - 1)) + (lesson_num * lesson_price)) - payed_amount;
 		}
 
+		if(result < 0) {
+			result = (result*-1);
+			search_lb.setText(String.valueOf(result));
+			note.setText(String.valueOf("There is a surplus in your account of : "));
+
+		}
+		else {
 		search_lb.setText(String.valueOf(result));
+		note.setText(String.valueOf(""));
+		}
+		
+		result=0;
 		
 		}
 
 	}
+	    
+	  
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
