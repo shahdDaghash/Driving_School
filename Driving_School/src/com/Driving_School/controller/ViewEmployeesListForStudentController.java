@@ -21,6 +21,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -43,6 +44,10 @@ public class ViewEmployeesListForStudentController implements Initializable{
 
     @FXML
     private TableColumn<Employee, String> last_name;
+    
+    @FXML
+	private Label errorMessage;
+    
 
     @FXML
     private TextField search_box;
@@ -69,6 +74,12 @@ public class ViewEmployeesListForStudentController implements Initializable{
 
     @FXML
     void changeTrainer(ActionEvent event) throws SQLException, IOException {
+    	
+    	Employee selected = ViewEmployees.getSelectionModel().getSelectedItem();
+		if (selected == null) {
+			errorMessage.setText("Please Select a Row!");
+			return;
+		}
     	
     	conn = MySQLConnect.connectDb();
     	

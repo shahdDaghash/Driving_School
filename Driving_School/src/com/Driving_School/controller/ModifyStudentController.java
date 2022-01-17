@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import com.Driving_School.model.MySQLConnect;
 import com.Driving_School.model.Student;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +20,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
@@ -48,7 +50,7 @@ public class ModifyStudentController {
 	private TextField mobile_num_txt;
 
 	@FXML
-	private TextField process_state_txt;
+	private ChoiceBox<String> process_state_txt;
 
 	@FXML
 	private TextField student_id_txt;
@@ -69,6 +71,8 @@ public class ModifyStudentController {
 	Connection conn = null;
 	ResultSet rs = null;
 	PreparedStatement pst = null;
+	
+	ObservableList<String> types = FXCollections.observableArrayList("In Progress","Graduated","Dropped off");
 
 	@FXML
 	void changeTrainer(ActionEvent event) throws IOException {
@@ -95,6 +99,7 @@ public class ModifyStudentController {
 		String sql = "UPDATE Student SET first_name = ? , last_name = ? , mobile_num = ? , eye_test_date = ? , address = ? , process_status = ? , license = ? , test_taken = ? where student_id = ? ;";
 
 		Student selected = stu;
+		
 
 		if (selected.getStudent_id().equals(student_id_txt.getText())) {
 			pst = conn.prepareStatement(sql);
@@ -103,7 +108,7 @@ public class ModifyStudentController {
 			pst.setString(3, mobile_num_txt.getText());
 			pst.setString(4, eye_test_date_txt.getText());
 			pst.setString(5, address_txt.getText());
-			pst.setString(6, process_state_txt.getText());
+			pst.setString(6, process_state_txt.getValue());
 			pst.setString(7, lisence_type_txt.getText());
 			pst.setString(8, tests_txt.getText());
 			pst.setString(9, student_id_txt.getText());
@@ -115,7 +120,7 @@ public class ModifyStudentController {
 			selected.setLast_name(last_name_txt.getText());
 			selected.setLicense(lisence_type_txt.getText());
 			selected.setMobile_num(mobile_num_txt.getText());
-			selected.setProcess_status(process_state_txt.getText());
+			selected.setProcess_status(process_state_txt.getValue());
 			selected.setTest_taken(Integer.parseInt(tests_txt.getText().strip()));
 
 			final Node source = (Node) event.getSource();
@@ -150,7 +155,8 @@ public class ModifyStudentController {
 		last_name_txt.setText(st.getLast_name());
 		mobile_num_txt.setText(st.getMobile_num());
 		address_txt.setText(st.getAddress());
-		process_state_txt.setText(st.getProcess_status());
+		process_state_txt.setItems(types);
+		process_state_txt.getSelectionModel().select(st.getProcess_status());
 		eye_test_date_txt.setText(st.getEye_test_date());
 		lisence_type_txt.setText(st.getLicense());
 		tests_txt.setText(st.getTest_taken() + " ");

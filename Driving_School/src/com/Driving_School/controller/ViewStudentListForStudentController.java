@@ -139,8 +139,10 @@ public class ViewStudentListForStudentController implements Initializable {
 	void openStudentRecord(ActionEvent event) throws IOException, SQLException {
 		Student selected = ViewStudents.getSelectionModel().getSelectedItem();
 		if (selected == null) {
-			JOptionPane.showInternalMessageDialog(null, "Please Select a row!");
+			errorMessage.setText("Please Select a Row!");
+			return;
 		} else {
+			errorMessage.setText("");
 			final Node source = (Node) event.getSource();
 			final Stage stage2 = (Stage) source.getScene().getWindow();
 			stage2.close();

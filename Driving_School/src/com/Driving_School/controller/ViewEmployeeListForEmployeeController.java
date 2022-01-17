@@ -20,6 +20,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -46,6 +47,9 @@ public class ViewEmployeeListForEmployeeController implements Initializable {
 
 	@FXML
 	private TextField search_box;
+	
+    @FXML
+	private Label errorMessage;
 
 	ObservableList<Employee> listE;
 
@@ -140,8 +144,9 @@ public class ViewEmployeeListForEmployeeController implements Initializable {
 	@FXML
 	void openEmployeeRecord(ActionEvent event) throws SQLException, IOException {
 		Employee selected = ViewEmployees.getSelectionModel().getSelectedItem();
+		
 		if (selected == null) {
-			JOptionPane.showInternalMessageDialog(null, "Please Select a row!");
+			errorMessage.setText("Please Select a Row!");
 		} else {
 			final Node source = (Node) event.getSource();
 			final Stage stage2 = (Stage) source.getScene().getWindow();

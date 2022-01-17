@@ -94,6 +94,7 @@ public class StudentInformationController {
 		primaryStage.setScene(scene);
 		primaryStage.initModality(Modality.WINDOW_MODAL);
 		primaryStage.setResizable(false);
+//		primaryStage.setAlwaysOnTop(true);
 		primaryStage.show();
 
 		ViewStudentListForStudentController cont = loader.getController();
