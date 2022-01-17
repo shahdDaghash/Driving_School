@@ -63,12 +63,12 @@
          <children>
             <Text layoutX="321.0" layoutY="491.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Al-Aqsa Driving School" textAlignment="CENTER" wrappingWidth="572.4419555664062">
                <font>
-                  <Font size="48.0" />
+                  <Font name="Arial Rounded MT Bold" size="48.0" />
                </font>
             </Text>
             <ImageView fitHeight="388.0" fitWidth="638.0" layoutX="321.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Desktop/logo.png" />
+                  <Image url="@images/logo.png" />
                </image>
             </ImageView>
          </children>

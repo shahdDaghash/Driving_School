@@ -28,12 +28,12 @@
             <Font name="Arial Rounded MT Bold" size="20.0" />
          </font>
       </Button>
-      <Label fx:id="errorMessage" layoutX="39.0" layoutY="483.0" textFill="RED">
+      <Label fx:id="errorMessage" layoutX="148.0" layoutY="454.0" textFill="RED">
          <font>
             <Font name="Arial Rounded MT Bold" size="16.0" />
          </font>
       </Label>
-      <Button layoutX="39.0" layoutY="487.0" mnemonicParsing="false" onAction="#cancelSelection" prefWidth="150.0" text="Cancel">
+      <Button layoutX="39.0" layoutY="486.0" mnemonicParsing="false" onAction="#cancelSelection" prefWidth="150.0" text="Cancel">
          <font>
             <Font name="Arial Rounded MT Bold" size="20.0" />
          </font>
