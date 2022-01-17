@@ -74,12 +74,12 @@ public class WelcomeController implements Initializable {
 
 	 @FXML
 	 void view_e(ActionEvent event) {
-		 loadPage("enterPay");
+		 loadPage("EmployeeInformation");
 	 }
 
 	 @FXML
 	 void view_s(ActionEvent event) {
-		 loadPage("enterPay");
+		 loadPage("StudentInformation");
 	 }
 
 	 @FXML
