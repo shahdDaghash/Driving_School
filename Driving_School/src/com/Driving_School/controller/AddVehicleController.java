@@ -6,26 +6,23 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
-import com.Driving_School.model.Vehicle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 public class AddVehicleController {
 
-    @FXML
-    private TextField insuranceEndDate;
+	@FXML
+	private TextField insuranceEndDate;
 
-    @FXML
-    private TextField vehicleNum;
+	@FXML
+	private TextField vehicleNum;
 
-    @FXML
-    void addVehicle(ActionEvent event) {
-    	String insuranceDate = insuranceEndDate.getText().toString();
+	@FXML
+	void addVehicle(ActionEvent event) {
+		String insuranceDate = insuranceEndDate.getText().toString();
 		String vehicle_num = vehicleNum.getText().toString();
-		
-		 
+
 		String sql = "insert into vehicle (vehicle_num,insurance_end_date)values(?,?)";
 		Connection conn = com.Driving_School.model.MySQLConnect.getConn();
 		PreparedStatement pst;
@@ -38,14 +35,14 @@ public class AddVehicleController {
 			clearFileds();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			JOptionPane.showMessageDialog(null,"Failed to add Vehicle, already exist");
+			JOptionPane.showMessageDialog(null, "Failed to add Vehicle, already exist");
 		}
-    }
+	}
 
-    @FXML
-    void clearFileds() {
-    	insuranceEndDate.clear();
-    	vehicleNum.clear();
-    }
+	@FXML
+	void clearFileds() {
+		insuranceEndDate.clear();
+		vehicleNum.clear();
+	}
 
 }

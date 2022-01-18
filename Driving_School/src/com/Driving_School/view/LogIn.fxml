@@ -21,7 +21,7 @@
          <children>
             <ImageView fitHeight="335.0" fitWidth="432.0" layoutX="155.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="307.0" AnchorPane.leftAnchor="155.0">
                <image>
-                  <Image url="@../../../img/logoo.png" />
+                  <Image url="@../../../images/logo.PNG" />
                </image>
             </ImageView>
             <Label layoutX="229.0" layoutY="469.0" text="Al-Aqsa Driving School" textFill="#0e0672">
@@ -37,7 +37,7 @@
          <children>
             <ImageView fitHeight="191.0" fitWidth="192.0" layoutX="159.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../img/login.png" />
+                  <Image url="@../../../images/login.png" />
                </image>
             </ImageView>
             <Label layoutX="14.0" layoutY="414.0" text="Username" textFill="#0e0672">

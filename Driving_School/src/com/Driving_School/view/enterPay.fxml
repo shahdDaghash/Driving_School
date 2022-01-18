@@ -59,12 +59,12 @@
       <TextField fx:id="search" layoutX="197.0" layoutY="179.0" onAction="#searchbox2" prefHeight="30.0" prefWidth="365.0" />
       <ImageView fitHeight="30.0" fitWidth="37.0" layoutX="151.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Desktop/search.png" />
+            <Image url="@../../../images/search.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="66.0" fitWidth="72.0" layoutX="84.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Desktop/payment.PNG" />
+            <Image url="@../../../images/payment.PNG" />
          </image>
       </ImageView>
    </children>

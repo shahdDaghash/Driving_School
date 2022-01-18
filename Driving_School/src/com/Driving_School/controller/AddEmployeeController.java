@@ -19,37 +19,36 @@ public class AddEmployeeController {
 
 	@FXML
 	private Button clearButton;
-	
+
 	@FXML
 	private Button addButton;
-	
+
 	@FXML
 	private TextField id;
-	
+
 	@FXML
 	private TextField firstName;
-	
+
 	@FXML
 	private TextField lastName;
-	
+
 	@FXML
 	private TextField mobileNum;
-	
+
 	@FXML
 	private TextField address;
 
+	@FXML
+	private ToggleGroup role;
 
-    @FXML
-    private ToggleGroup role;
+	@FXML
+	private RadioButton secretary;
 
-    @FXML
-    private RadioButton secretary;
-
-    @FXML
-    private RadioButton trainer;
+	@FXML
+	private RadioButton trainer;
 
 	public void addEmployee() {
-	
+
 		String empID = id.getText().toString();
 		String empFirstName = firstName.getText().toString();
 		String empLastName = lastName.getText().toString();
@@ -65,25 +64,25 @@ public class AddEmployeeController {
 			pst.setString(3, empLastName);
 			pst.setString(4, mobile);
 			pst.setString(5, empAddress);
-			
+
 			pst.execute();
 			JOptionPane.showMessageDialog(null, "Employee Add success");
 			clearFileds();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			JOptionPane.showMessageDialog(null,"Failed to add employee, already exist");
+			JOptionPane.showMessageDialog(null, "Failed to add employee, already exist");
 		}
 		String emp_role = "";
 		String col_name = "";
-		
-		if(trainer.isSelected()) {
-			emp_role="trainer";
+
+		if (trainer.isSelected()) {
+			emp_role = "trainer";
 			col_name = "trainer_id";
-		}else {
-			emp_role="secretary";
+		} else {
+			emp_role = "secretary";
 			col_name = "secretary_id";
 		}
-		sql = "insert into "+ emp_role + " ("+ col_name +")values(?)";
+		sql = "insert into " + emp_role + " (" + col_name + ")values(?)";
 		try {
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, empID);
@@ -93,7 +92,7 @@ public class AddEmployeeController {
 		}
 
 	}
-	
+
 	public void clearFileds() {
 		id.clear();
 		firstName.clear();
@@ -101,5 +100,5 @@ public class AddEmployeeController {
 		mobileNum.clear();
 		address.clear();
 	}
-	
+
 }

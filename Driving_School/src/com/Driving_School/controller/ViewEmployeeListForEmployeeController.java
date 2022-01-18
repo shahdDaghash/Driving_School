@@ -72,7 +72,7 @@ public class ViewEmployeeListForEmployeeController implements Initializable {
 	}
 	
 	@FXML
-	void search_it(KeyEvent event) {
+	void search_it(KeyEvent event){
 		conn = MySQLConnect.connectDb();
 
 		try {

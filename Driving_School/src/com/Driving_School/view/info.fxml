@@ -14,7 +14,7 @@
          <children>
             <ImageView fx:id="bus_image" fitHeight="99.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Desktop/bus.png" />
+                  <Image url="@../../../images/bus.png" />
                </image>
             </ImageView>
             <Label fx:id="bus_name" alignment="CENTER" contentDisplay="CENTER" text="Bus" textFill="#635959">
@@ -57,7 +57,7 @@
          <children>
             <ImageView fx:id="bus_image1" fitHeight="99.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Desktop/taxi.png" />
+                  <Image url="@../../../images/taxi.png" />
                </image>
             </ImageView>
             <Label fx:id="bus_name1" alignment="CENTER" contentDisplay="CENTER" text="Taxi" textFill="#635959">
@@ -101,7 +101,7 @@
          <children>
             <ImageView fx:id="bus_image11" fitHeight="99.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Desktop/private.jpg" />
+                  <Image url="@../../../images/private.jpg" />
                </image>
             </ImageView>
             <Label fx:id="bus_name11" alignment="CENTER" contentDisplay="CENTER" text="Private" textFill="#635959">
@@ -145,7 +145,7 @@
          <children>
             <ImageView fx:id="bus_image111" fitHeight="80.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Desktop/trella.jpg" />
+                  <Image url="@../../../images/trella.jpg" />
                </image>
             </ImageView>
             <Label fx:id="bus_name111" alignment="CENTER" contentDisplay="CENTER" text="Trella" textFill="#635959">
@@ -189,7 +189,7 @@
          <children>
             <ImageView fx:id="bus_image12" fitHeight="99.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Desktop/heavytruck.jpg" />
+                  <Image url="@../../../images/heavytruck.jpg" />
                </image>
             </ImageView>
             <Label fx:id="bus_name12" alignment="CENTER" contentDisplay="CENTER" text="Heavy Truck" textFill="#635959">
@@ -233,7 +233,7 @@
          <children>
             <ImageView fx:id="bus_image112" fitHeight="99.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Desktop/lighttruck.jpg" />
+                  <Image url="@../../../images/lighttruck.jpg" />
                </image>
             </ImageView>
             <Label fx:id="bus_name112" alignment="CENTER" contentDisplay="CENTER" text="Light Truck" textFill="#635959">

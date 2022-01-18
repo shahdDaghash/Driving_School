@@ -29,110 +29,108 @@ import javafx.scene.control.ToggleGroup;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class AddStudentController implements Initializable{
+public class AddStudentController implements Initializable {
 
 	Student stu = new Student();
-	
-    @FXML
-    private TextField address;
 
-    @FXML
-    private RadioButton dropped_off;
+	@FXML
+	private TextField address;
 
-    @FXML
-    private TextField emp_name;
+	@FXML
+	private RadioButton dropped_off;
 
-    @FXML
-    private String license_type;
-    
-    @FXML
-    private TextField eye_test_date;
+	@FXML
+	private TextField emp_name;
 
-    @FXML
-    private TextField first_name;
+	@FXML
+	private String license_type;
 
-    @FXML
-    private RadioButton graduted;
+	@FXML
+	private TextField eye_test_date;
 
-    @FXML
-    private RadioButton in_progress;
+	@FXML
+	private TextField first_name;
 
-    @FXML
-    private TextField last_name;
+	@FXML
+	private RadioButton graduted;
 
-    @FXML
-    private TextField mobile_num;
+	@FXML
+	private RadioButton in_progress;
 
-    @FXML
-    private ToggleGroup process;
+	@FXML
+	private TextField last_name;
 
-    @FXML
-    private TextField student_id;
-    @FXML
-    private ChoiceBox<String> LicenseType ;
-    
-    ObservableList<String> types = FXCollections.observableArrayList("Private","Taxi","Trella","Light Truck","Heavy Truck","Bus");
-    
-    @Override
+	@FXML
+	private TextField mobile_num;
+
+	@FXML
+	private ToggleGroup process;
+
+	@FXML
+	private TextField student_id;
+	@FXML
+	private ChoiceBox<String> LicenseType;
+
+	ObservableList<String> types = FXCollections.observableArrayList("Private", "Taxi", "Trella", "Light Truck",
+			"Heavy Truck", "Bus");
+
+	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-    	LicenseType.setItems(types);
-    	
-	}
-    
-    @FXML
-    void ShowTrainers(ActionEvent event) throws IOException {
-    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Driving_School/view/ViewTrainersList.fxml"));
-    		Parent root = loader.load();
-    		Scene scene = new Scene(root);
-    		Stage primaryStage = new Stage();
-    		primaryStage.setTitle("Al-Aqsa Driving School");
-    		primaryStage.setScene(scene);
-    		primaryStage.initModality(Modality.WINDOW_MODAL);
-    		primaryStage.setResizable(false);
-    		primaryStage.show();
-    		ViewTrainersListController cont = loader.getController();
-    		cont.c_stu = stu;
-    		cont.msc = this;
-    }
+		LicenseType.setItems(types);
 
-    @FXML
-    void addStudent(ActionEvent event) {
-    	String studentId = student_id.getText().toString();
-    	String firstName = first_name.getText().toString();
-    	String lastName = last_name.getText().toString();
-    	String mobile = mobile_num.getText().toString();
-    	String studentAddress = address.getText().toString();
-    	String eyeTestDate = eye_test_date.getText().toString();
-    	String studentProgress = "";
-    	license_type=LicenseType.getValue();
-    	
-    	if(dropped_off.isSelected()) {
-    		studentProgress = "Dropped Off";
-    	}else if(graduted.isSelected()) {
-    		studentProgress = "Graduated";
-    	}else {
-    		studentProgress = "In Progress";
-    	}
-  
-    	
- 
-    	stu.setStudent_id(studentId);
-    	stu.setFirst_name(firstName);
-    	stu.setLast_name(lastName);
-    	stu.setMobile_num(mobile);
-    	stu.setAddress(studentAddress);
-    	stu.setEye_test_date(eyeTestDate);
-    	stu.setProcess_status(studentProgress);
-    	stu.setLicense(license_type);
-   
-    
-    	String sql = "insert into student (student_id,first_name,last_name,mobile_num,eye_test_date,address,process_status,license,emp_id)values(?,?,?,?,?,?,?,?,? )";
+	}
+
+	@FXML
+	void ShowTrainers(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Driving_School/view/ViewTrainersList.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		Stage primaryStage = new Stage();
+		primaryStage.setTitle("Al-Aqsa Driving School");
+		primaryStage.setScene(scene);
+		primaryStage.initModality(Modality.WINDOW_MODAL);
+		primaryStage.setResizable(false);
+		primaryStage.show();
+		ViewTrainersListController cont = loader.getController();
+		cont.c_stu = stu;
+		cont.msc = this;
+	}
+
+	@FXML
+	void addStudent(ActionEvent event) {
+		String studentId = student_id.getText().toString();
+		String firstName = first_name.getText().toString();
+		String lastName = last_name.getText().toString();
+		String mobile = mobile_num.getText().toString();
+		String studentAddress = address.getText().toString();
+		String eyeTestDate = eye_test_date.getText().toString();
+		String studentProgress = "";
+		license_type = LicenseType.getValue();
+
+		if (dropped_off.isSelected()) {
+			studentProgress = "Dropped Off";
+		} else if (graduted.isSelected()) {
+			studentProgress = "Graduated";
+		} else {
+			studentProgress = "In Progress";
+		}
+
+		stu.setStudent_id(studentId);
+		stu.setFirst_name(firstName);
+		stu.setLast_name(lastName);
+		stu.setMobile_num(mobile);
+		stu.setAddress(studentAddress);
+		stu.setEye_test_date(eyeTestDate);
+		stu.setProcess_status(studentProgress);
+		stu.setLicense(license_type);
+
+		String sql = "insert into student (student_id,first_name,last_name,mobile_num,eye_test_date,address,process_status,license,emp_id)values(?,?,?,?,?,?,?,?,? )";
 		Connection conn = com.Driving_School.model.MySQLConnect.getConn();
 		PreparedStatement pst;
 		try {
 			pst = conn.prepareStatement(sql);
-			
+
 			pst.setString(1, studentId);
 			pst.setString(2, firstName);
 			pst.setString(3, lastName);
@@ -147,30 +145,31 @@ public class AddStudentController implements Initializable{
 			clear();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			JOptionPane.showMessageDialog(null,"Failed to add Student, already exist");
+			JOptionPane.showMessageDialog(null, "Failed to add Student, already exist");
 		}
-    	}
+	}
 
-    @FXML
-    void clear() {
-    	address.clear();
-    	last_name.clear();
-    	mobile_num.clear();
-    	student_id.clear();
-    	eye_test_date.clear();
-    	first_name.clear();
-    	emp_name.clear();
-    }
+	@FXML
+	void clear() {
+		address.clear();
+		last_name.clear();
+		mobile_num.clear();
+		student_id.clear();
+		eye_test_date.clear();
+		first_name.clear();
+		emp_name.clear();
+	}
 
 	public void showInformation(Student st) throws SQLException {
 		stu.setEmp_id(st.getEmp_id());
-	
+
 		Connection conn = MySQLConnect.connectDb();
 		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select first_name, last_name from employee where employee.emp_id = '"+ st.getEmp_id() + "';");
+		ResultSet rs = stmt.executeQuery(
+				"select first_name, last_name from employee where employee.emp_id = '" + st.getEmp_id() + "';");
 		rs.next();
-		emp_name.setText(rs.getString("first_name")+ " " + rs.getString("last_name"));
-		
+		emp_name.setText(rs.getString("first_name") + " " + rs.getString("last_name"));
+
 	}
 
 }

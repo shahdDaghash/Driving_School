@@ -17,25 +17,25 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
-import javafx.stage.Stage; 
+import javafx.stage.Stage;
 
 public class AddLessonController {
 
 	Student stu = new Student();
-	
+
 	Vehicle ve = new Vehicle();
-    @FXML
-    private TextField lessonDate;
+	@FXML
+	private TextField lessonDate;
 
-    @FXML
-    private TextField student;
+	@FXML
+	private TextField student;
 
-    @FXML
-    private TextField vehicle;
+	@FXML
+	private TextField vehicle;
 
-    @FXML
-    void addLesson(ActionEvent event) {
-    	 
+	@FXML
+	void addLesson(ActionEvent event) {
+
 		String lesson_date = lessonDate.getText();
 		String sql = "insert into vehicle_student (student_id,lesson_date,vehicle_num)values(?,?,?)";
 		Connection conn = com.Driving_School.model.MySQLConnect.getConn();
@@ -46,18 +46,19 @@ public class AddLessonController {
 			pst.setString(2, lesson_date);
 			pst.setString(3, ve.getVehicle_num());
 			pst.execute();
-			 
+
 			JOptionPane.showMessageDialog(null, "Lesson Add success");
 			clearFileds();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			JOptionPane.showMessageDialog(null,"Failed to add Lesson");
+			JOptionPane.showMessageDialog(null, "Failed to add Lesson");
 		}
-    }
+	}
 
-    @FXML
-    void chooseStudent(ActionEvent event) throws IOException {
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Driving_School/view/ViewStudentsForLessons.fxml"));
+	@FXML
+	void chooseStudent(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader(
+				getClass().getResource("/com/Driving_School/view/ViewStudentsForLessons.fxml"));
 		Parent root = loader.load();
 		Scene scene = new Scene(root);
 		Stage primaryStage = new Stage();
@@ -69,11 +70,11 @@ public class AddLessonController {
 		ViewStudentsForLessonsController cont = loader.getController();
 		cont.c_stu = stu;
 		cont.sic = this;
-    }
+	}
 
-    @FXML
-    void chooseVehicle(ActionEvent event) throws IOException {
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Driving_School/view/ViewVehiclesList.fxml"));
+	@FXML
+	void chooseVehicle(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Driving_School/view/ViewVehiclesList.fxml"));
 		Parent root = loader.load();
 		Scene scene = new Scene(root);
 		Stage primaryStage = new Stage();
@@ -83,23 +84,25 @@ public class AddLessonController {
 		primaryStage.setResizable(false);
 		primaryStage.show();
 		NewViewVehicleListController cont = loader.getController();
-		
+
 		cont.veh = ve;
 		cont.msc = this;
-    }
+	}
 
-    @FXML
-    void clearFileds() {
-    	lessonDate.clear();
-    	student.clear();
-    	vehicle.clear();
-    }
-    public void showInformation(Student st) {
-    	stu.setStudent_id(st.getStudent_id());
-    	student.setText(st.getFirst_name() + " " + st.getLast_name());
-    }
-    public void showVehicleInformation(Vehicle veh) {
-    	ve.setVehicle_num(veh.getVehicle_num());
-    	vehicle.setText(veh.getVehicle_num());
-    }
+	@FXML
+	void clearFileds() {
+		lessonDate.clear();
+		student.clear();
+		vehicle.clear();
+	}
+
+	public void showInformation(Student st) {
+		stu.setStudent_id(st.getStudent_id());
+		student.setText(st.getFirst_name() + " " + st.getLast_name());
+	}
+
+	public void showVehicleInformation(Vehicle veh) {
+		ve.setVehicle_num(veh.getVehicle_num());
+		vehicle.setText(veh.getVehicle_num());
+	}
 }

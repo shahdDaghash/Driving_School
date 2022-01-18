@@ -21,6 +21,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -46,6 +47,9 @@ public class ViewTrainersListController implements Initializable{
 	    @FXML
 	    private TextField search_box;
 	    
+	    @FXML
+		private Label errorMessage;
+	    
 	    ObservableList<Employee> listE;
 
 		int index = -1;
@@ -68,7 +72,15 @@ public class ViewTrainersListController implements Initializable{
 
 	    @FXML
 	    void chooseTrainer(ActionEvent event) throws SQLException, IOException {
-	   
+	    	
+	    	
+	    	Employee selected = ViewEmployees.getSelectionModel().getSelectedItem();
+	    	
+	    	if (selected == null) {
+				errorMessage.setText("Please Select a Row!");
+				return;
+			}
+	    	
 	    	c_stu.setEmp_id(ViewEmployees.getSelectionModel().getSelectedItem().getEmp_id());
 	    	
 			final Node source = (Node) event.getSource();
