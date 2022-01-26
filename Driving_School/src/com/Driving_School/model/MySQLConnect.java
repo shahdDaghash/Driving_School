@@ -26,8 +26,7 @@ public class MySQLConnect {
 			 return conn;
 		} catch (Exception e) {
 			// TODO: handle exception
-			JOptionPane.showInternalMessageDialog(null, e);
-
+			JOptionPane.showInternalMessageDialog(null, "Error in Connecting to Database. Please contact adminstrator.");
 		}
 		return conn;
 		

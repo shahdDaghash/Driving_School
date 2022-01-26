@@ -75,51 +75,65 @@ public class WelcomeController implements Initializable {
 		stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("SELECT COUNT(student_id) FROM student;");
 		rs.next();
-		students_total.setText(rs.getString(1));
+		if(rs.getString(1)!=null) {
+			students_total.setText(rs.getString(1));
+		}
+		
 		
 		conn = MySQLConnect.connectDb();
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery("SELECT COUNT(trainer_id) FROM trainer");
 		rs.next();
-		trainers_total.setText(rs.getString(1));
+		if(rs.getString(1)!=null) {
+			trainers_total.setText(rs.getString(1));
+		}
+		
 		
 		conn = MySQLConnect.connectDb();
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery("SELECT COUNT(vehicle_num) FROM vehicle");
 		rs.next();
-		vehicles_total.setText(rs.getString(1));
+		if(rs.getString(1)!=null) {
+			vehicles_total.setText(rs.getString(1));
+		}
+		
 		
 		conn = MySQLConnect.connectDb();
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery("SELECT COUNT(lesson_id) FROM vehicle_student");
 		rs.next();
-		lessons_total.setText(rs.getString(1));
+		if(rs.getString(1)!=null)
+			lessons_total.setText(rs.getString(1));
 		
     	
     	conn = MySQLConnect.connectDb();
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery("select SUM(amount) from payments;");
 		rs.next();
-		total_paid.setText(rs.getString(1));
+		if(rs.getString(1)!=null)
+			total_paid.setText(rs.getString(1));
 		
 		
 		conn = MySQLConnect.connectDb();
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery("select SUM(20*amount/100) from payments;");
 		rs.next();
-		trainers_taken.setText(rs.getString(1));
+		if(rs.getString(1)!=null)
+			trainers_taken.setText(rs.getString(1));
 		
 		conn = MySQLConnect.connectDb();
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery("select SUM(10*amount/100) from payments;");
 		rs.next();
-		vehicles_taken.setText(rs.getString(1));
+		if(rs.getString(1)!=null)
+			vehicles_taken.setText(rs.getString(1));
 		
 		conn = MySQLConnect.connectDb();
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery("select SUM(70*amount/100.0) from payments;");
 		rs.next();
-		net_profit.setText(rs.getString(1));
+		if(rs.getString(1)!=null)
+			net_profit.setText(rs.getString(1));
 		
     }
     
