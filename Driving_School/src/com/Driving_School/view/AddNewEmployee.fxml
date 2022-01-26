@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #1b83cd;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Driving_School.controller.AddEmployeeController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="800.0" prefWidth="1160.0" style="-fx-background-color: #1b83cd;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Driving_School.controller.AddEmployeeController">
    <top>
       <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="339.0" layoutY="65.0" text="Add New Employee " textFill="WHITE">
+            <Label layoutX="314.0" layoutY="65.0" text="Add New Employee " textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="60.0" />
                </font>
@@ -26,37 +26,37 @@
    <left>
       <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="427.0" prefHeight="51.0" prefWidth="173.0" text="Id" textFill="WHITE">
+            <Label layoutX="398.0" prefHeight="51.0" prefWidth="173.0" text="Id" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="27.0" />
                </font>
             </Label>
-            <TextField fx:id="id" layoutX="623.0" layoutY="14.0" prefHeight="41.0" prefWidth="198.0" promptText="Employee Id" />
-            <Label layoutX="392.0" layoutY="82.0" prefHeight="51.0" prefWidth="173.0" text="First name" textFill="WHITE">
+            <TextField fx:id="id" layoutX="594.0" layoutY="14.0" prefHeight="41.0" prefWidth="198.0" promptText="Employee Id" />
+            <Label layoutX="363.0" layoutY="82.0" prefHeight="51.0" prefWidth="173.0" text="First name" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="27.0" />
                </font>
             </Label>
-            <TextField fx:id="firstName" layoutX="623.0" layoutY="87.0" prefHeight="41.0" prefWidth="198.0" promptText="Employee first name" />
-            <Label layoutX="392.0" layoutY="154.0" prefHeight="51.0" prefWidth="173.0" text="Last name" textFill="WHITE">
+            <TextField fx:id="firstName" layoutX="594.0" layoutY="87.0" prefHeight="41.0" prefWidth="198.0" promptText="Employee first name" />
+            <Label layoutX="363.0" layoutY="154.0" prefHeight="51.0" prefWidth="173.0" text="Last name" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="27.0" />
                </font>
             </Label>
-            <TextField fx:id="lastName" layoutX="623.0" layoutY="159.0" prefHeight="41.0" prefWidth="198.0" promptText="Employee last name" />
-            <TextField fx:id="mobileNum" layoutX="623.0" layoutY="228.0" prefHeight="41.0" prefWidth="198.0" promptText="Employee mobile number" />
-            <Label layoutX="392.0" layoutY="222.0" prefHeight="53.0" prefWidth="173.0" text="Mobile number" textFill="WHITE">
+            <TextField fx:id="lastName" layoutX="594.0" layoutY="159.0" prefHeight="41.0" prefWidth="198.0" promptText="Employee last name" />
+            <TextField fx:id="mobileNum" layoutX="594.0" layoutY="228.0" prefHeight="41.0" prefWidth="198.0" promptText="Employee mobile number" />
+            <Label layoutX="363.0" layoutY="222.0" prefHeight="53.0" prefWidth="173.0" text="Mobile number" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="392.0" layoutY="286.0" prefHeight="53.0" prefWidth="173.0" text="Address" textFill="WHITE">
+            <Label layoutX="363.0" layoutY="286.0" prefHeight="53.0" prefWidth="173.0" text="Address" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="address" layoutX="620.0" layoutY="292.0" prefHeight="41.0" prefWidth="198.0" promptText="Employee address" />
-            <Button layoutX="479.0" layoutY="449.0" mnemonicParsing="false" onAction="#clearFileds" prefHeight="53.0" prefWidth="102.0" style="-fx-background-color: red;" text="Clear" textFill="#f8f8f8">
+            <TextField fx:id="address" layoutX="591.0" layoutY="292.0" prefHeight="41.0" prefWidth="198.0" promptText="Employee address" />
+            <Button layoutX="450.0" layoutY="449.0" mnemonicParsing="false" onAction="#clearFileds" prefHeight="53.0" prefWidth="102.0" style="-fx-background-color: red;" text="Clear" textFill="#f8f8f8">
                <font>
                   <Font name="Arial Rounded MT Bold" size="22.0" />
                </font>
@@ -64,7 +64,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="668.0" layoutY="449.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="53.0" prefWidth="102.0" style="-fx-background-color: white;" text="Add" textFill="#1b83cd">
+            <Button layoutX="639.0" layoutY="449.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="53.0" prefWidth="102.0" style="-fx-background-color: white;" text="Add" textFill="#1b83cd">
                <font>
                   <Font name="Arial Rounded MT Bold" size="22.0" />
                </font>
@@ -72,12 +72,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label layoutX="427.0" layoutY="354.0" prefHeight="53.0" prefWidth="173.0" text="Role" textFill="WHITE">
+            <Label layoutX="398.0" layoutY="354.0" prefHeight="53.0" prefWidth="173.0" text="Role" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="24.0" />
                </font>
             </Label>
-            <RadioButton fx:id="trainer" layoutX="620.0" layoutY="365.0" mnemonicParsing="false" text="Trainer" textFill="WHITE">
+            <RadioButton fx:id="trainer" layoutX="591.0" layoutY="365.0" mnemonicParsing="false" text="Trainer" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="24.0" />
                </font>
@@ -85,7 +85,7 @@
                   <ToggleGroup fx:id="role" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="secretary" layoutX="780.0" layoutY="365.0" mnemonicParsing="false" text="Secretary" textFill="WHITE" toggleGroup="$role">
+            <RadioButton fx:id="secretary" layoutX="751.0" layoutY="365.0" mnemonicParsing="false" text="Secretary" textFill="WHITE" toggleGroup="$role">
                <font>
                   <Font name="Arial Rounded MT Bold" size="24.0" />
                </font>

@@ -2,9 +2,15 @@ package com.Driving_School.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import com.Driving_School.model.MySQLConnect;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -36,16 +43,109 @@ public class WelcomeController implements Initializable {
 	@FXML
 	private Button payments;
 	
+	@FXML
+    private Label lessons_total;
+
+    @FXML
+    private Label net_profit;
+
+    @FXML
+    private Label students_total;
+
+    @FXML
+    private Label total_paid;
+
+    @FXML
+    private Label trainers_taken;
+
+    @FXML
+    private Label trainers_total;
+    
+    @FXML
+    private Label vehicles_taken;
+
+    @FXML
+    private Label vehicles_total;
 	
+	
+    public void calculate() throws SQLException {
+    	
+    	Connection conn = MySQLConnect.connectDb();
+		Statement stmt;
+		stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT COUNT(student_id) FROM student;");
+		rs.next();
+		students_total.setText(rs.getString(1));
+		
+		conn = MySQLConnect.connectDb();
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery("SELECT COUNT(trainer_id) FROM trainer");
+		rs.next();
+		trainers_total.setText(rs.getString(1));
+		
+		conn = MySQLConnect.connectDb();
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery("SELECT COUNT(vehicle_num) FROM vehicle");
+		rs.next();
+		vehicles_total.setText(rs.getString(1));
+		
+		conn = MySQLConnect.connectDb();
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery("SELECT COUNT(lesson_id) FROM vehicle_student");
+		rs.next();
+		lessons_total.setText(rs.getString(1));
+		
+    	
+    	conn = MySQLConnect.connectDb();
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery("select SUM(amount) from payments;");
+		rs.next();
+		total_paid.setText(rs.getString(1));
+		
+		
+		conn = MySQLConnect.connectDb();
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery("select SUM(20*amount/100) from payments;");
+		rs.next();
+		trainers_taken.setText(rs.getString(1));
+		
+		conn = MySQLConnect.connectDb();
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery("select SUM(10*amount/100) from payments;");
+		rs.next();
+		vehicles_taken.setText(rs.getString(1));
+		
+		conn = MySQLConnect.connectDb();
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery("select SUM(70*amount/100.0) from payments;");
+		rs.next();
+		net_profit.setText(rs.getString(1));
+		
+    }
+    
+    /*
+     * 	SELECT COUNT(student_id) AS total_student FROM student;
+		SELECT COUNT(emp_id) AS total_trainers FROM employee;
+		SELECT COUNT(vehicle_num) AS total_vehile FROM vehicle;
+		SELECT COUNT(lesson_id) AS total_lessons FROM vehicle_student;
+     */
+    
 	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+	public void initialize(URL arg0, ResourceBundle arg1){
+		try {
+			calculate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 	
 	@FXML
-	public void OpenHome(ActionEvent event) {
-		bp.setCenter(ap);	
+	public void OpenHome(ActionEvent event) throws SQLException {
+		bp.setCenter(ap);
+		calculate();
 	}
 	
 	

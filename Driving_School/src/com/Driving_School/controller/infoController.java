@@ -90,8 +90,6 @@ public class infoController implements Initializable {
     	rs0.close();
     	bus_lessonP.setText(String.valueOf(lesson_P));
     	
-    
-    	System.out.println(lesson_P);
     	
     	int	test_P = 0;
     	String bus_T_P = "SELECT test_price FROM prices where lesson_price = "+lesson_P+" ";
