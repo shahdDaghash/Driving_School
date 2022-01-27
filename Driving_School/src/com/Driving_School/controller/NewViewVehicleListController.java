@@ -1,5 +1,3 @@
-
-
 package com.Driving_School.controller;
 
 import java.io.IOException;
@@ -32,9 +30,7 @@ import javafx.stage.Stage;
 public class NewViewVehicleListController implements Initializable{
 
 	Vehicle veh;
-	
 	AddLessonController msc;
-	
 	
     @FXML
     private TableView<Vehicle> ViewVehicles;
@@ -69,7 +65,6 @@ public class NewViewVehicleListController implements Initializable{
 
     @FXML
     void chooseVehicle(ActionEvent event) throws SQLException, IOException {
-    	
     	veh.setVehicle_num(ViewVehicles.getSelectionModel().getSelectedItem().getVehicle_num());
 		final Node source = (Node) event.getSource();
 		final Stage stage2 = (Stage) source.getScene().getWindow();
@@ -85,20 +80,10 @@ public class NewViewVehicleListController implements Initializable{
     	try {
     		listE = getDataVehicleSearch();
         	ViewVehicles.setItems(listE);
-    		
     	} catch(Exception e) {
     		JOptionPane.showMessageDialog(null, e);
     	}
     }
-    
-//    @Override
-//	public void initialize(URL url, ResourceBundle rb) {
-//    	vehicle_num.setCellValueFactory(new PropertyValueFactory<Vehicle, String>("vehicle_num"));
-//    	
-//		insurance_end_date.setCellValueFactory(new PropertyValueFactory<Vehicle, String>("insurance_end_date"));
-//		listE = getDataVehicles();
-//		ViewVehicles.setItems(listE);
-//	}
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -126,8 +111,6 @@ public class NewViewVehicleListController implements Initializable{
 		return list;
 	}
     
-    
-    
     public ObservableList<Vehicle> getDataVehicleSearch() { 
     	conn = MySQLConnect.connectDb();
 		ObservableList<Vehicle> list = FXCollections.observableArrayList();
@@ -137,7 +120,6 @@ public class NewViewVehicleListController implements Initializable{
 			if(search_box.getText().matches("[0-9]+")) {
 				sql1 = "Select * from vehicle where vehicle_num like '%" + search_box.getText() + "%' ;";
 			}
-			
 			ResultSet rs = stmt.executeQuery(sql1);
 			while (rs.next()) {
 				list.add(new Vehicle(rs.getString("vehicle_num"), rs.getString("insurance_end_date")));

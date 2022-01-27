@@ -75,13 +75,14 @@ public class AddEmployeeController {
 			pst.setString(5, empAddress);
 			pst.execute();
 			JOptionPane.showMessageDialog(null, "Employee Add success");
-			clearFileds();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			JOptionPane.showMessageDialog(null, "Failed to add employee");
 		}
-		String emp_role = "";
-		String col_name = "";
+		
+		String emp_role = "secretary";
+		String col_name = "secretary_id";
 		/*
 		 * Check if the added employee is trainer or not
 		 * If yes, it will be added to the trainers table
@@ -90,19 +91,19 @@ public class AddEmployeeController {
 		if (trainer.isSelected()) {
 			emp_role = "trainer";
 			col_name = "trainer_id";
-		} else {
-			emp_role = "secretary";
-			col_name = "secretary_id";
-		}
-		sql = "insert into " + emp_role + " (" + col_name + ")values(?)";
+		} 
+		 
+		String sql1 = "insert into " + emp_role + " (" + col_name + ")values(? )";
+		conn = com.Driving_School.model.MySQLConnect.getConn();
 		try {
-			pst = conn.prepareStatement(sql);
+			pst = conn.prepareStatement(sql1);
 			pst.setString(1, empID);
+			pst.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		clearFileds();
 	}
 	
 	public void clearFileds() {
