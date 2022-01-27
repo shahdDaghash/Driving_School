@@ -18,12 +18,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+/**
+ * Adding new lesson
+ *  
+ * @author Tala Alsweiti - 1191068
+ *
+ */
 public class AddLessonController {
-
 	Student stu = new Student();
-
 	Vehicle ve = new Vehicle();
+	
 	@FXML
 	private TextField lessonDate;
 
@@ -35,8 +39,10 @@ public class AddLessonController {
 
 	@FXML
 	void addLesson(ActionEvent event) {
-
 		String lesson_date = lessonDate.getText();
+		/*
+		 * Using this query, a new lesson will be added for the chosen student
+		 */
 		String sql = "insert into vehicle_student (student_id,lesson_date,vehicle_num)values(?,?,?)";
 		Connection conn = com.Driving_School.model.MySQLConnect.getConn();
 		PreparedStatement pst;
@@ -55,6 +61,11 @@ public class AddLessonController {
 		}
 	}
 
+	/**
+	 * This function used to choose a student by showing the students table
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	void chooseStudent(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(
@@ -71,7 +82,11 @@ public class AddLessonController {
 		cont.c_stu = stu;
 		cont.sic = this;
 	}
-
+	/**
+	 * Used to choose a vehicle by showing the vehicles table
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	void chooseVehicle(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Driving_School/view/ViewVehiclesList.fxml"));
@@ -84,7 +99,6 @@ public class AddLessonController {
 		primaryStage.setResizable(false);
 		primaryStage.show();
 		NewViewVehicleListController cont = loader.getController();
-
 		cont.veh = ve;
 		cont.msc = this;
 	}
@@ -95,7 +109,7 @@ public class AddLessonController {
 		student.clear();
 		vehicle.clear();
 	}
-
+	
 	public void showInformation(Student st) {
 		stu.setStudent_id(st.getStudent_id());
 		student.setText(st.getFirst_name() + " " + st.getLast_name());

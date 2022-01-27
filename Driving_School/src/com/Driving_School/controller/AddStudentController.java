@@ -28,7 +28,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+/**
+ * Adding new student 
+ * 
+ * @author Tala Alsweiti - 1191068
+ *
+ */
 public class AddStudentController implements Initializable {
 
 	Student stu = new Student();
@@ -78,9 +83,13 @@ public class AddStudentController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		LicenseType.setItems(types);
-
 	}
 
+	/**
+	 * Used to choose a trainer by showing the trainers table
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	void ShowTrainers(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/Driving_School/view/ViewTrainersList.fxml"));
@@ -124,7 +133,9 @@ public class AddStudentController implements Initializable {
 		stu.setEye_test_date(eyeTestDate);
 		stu.setProcess_status(studentProgress);
 		stu.setLicense(license_type);
-
+		/*
+		 * Using this query, a new student will be added
+		 */
 		String sql = "insert into student (student_id,first_name,last_name,mobile_num,eye_test_date,address,process_status,license,emp_id)values(?,?,?,?,?,?,?,?,? )";
 		Connection conn = com.Driving_School.model.MySQLConnect.getConn();
 		PreparedStatement pst;
@@ -145,7 +156,7 @@ public class AddStudentController implements Initializable {
 			clear();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			JOptionPane.showMessageDialog(null, "Failed to add Student, already exist");
+			JOptionPane.showMessageDialog(null, "Failed to add Student");
 		}
 	}
 
@@ -159,10 +170,14 @@ public class AddStudentController implements Initializable {
 		first_name.clear();
 		emp_name.clear();
 	}
-
+	
+	/**
+	 * Show trainers to choose from them 
+	 * @param st
+	 * @throws SQLException
+	 */
 	public void showInformation(Student st) throws SQLException {
 		stu.setEmp_id(st.getEmp_id());
-
 		Connection conn = MySQLConnect.connectDb();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(

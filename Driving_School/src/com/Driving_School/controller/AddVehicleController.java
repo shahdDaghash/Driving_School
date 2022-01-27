@@ -9,7 +9,12 @@ import javax.swing.JOptionPane;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-
+/**
+ * Adding new vehicle 
+ * 
+ * @author Tala Alsweiti - 1191068
+ *
+ */
 public class AddVehicleController {
 
 	@FXML
@@ -22,7 +27,6 @@ public class AddVehicleController {
 	void addVehicle(ActionEvent event) {
 		String insuranceDate = insuranceEndDate.getText().toString();
 		String vehicle_num = vehicleNum.getText().toString();
-
 		String sql = "insert into vehicle (vehicle_num,insurance_end_date)values(?,?)";
 		Connection conn = com.Driving_School.model.MySQLConnect.getConn();
 		PreparedStatement pst;
