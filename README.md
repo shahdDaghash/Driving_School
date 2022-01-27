@@ -4,7 +4,7 @@
 ## Why, What 
 ### why 
 1. 
-2. This is final project for DataBase course 
+2. This is the final project for DataBase course COMP333 in Birzeit University
 
 ### What 
 -  
