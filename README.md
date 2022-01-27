@@ -13,7 +13,7 @@
 ---
 
 ## ERD 
--  [ERD design] ( https://docs.google.com/document/d/1j9OR76IRrM4uSaBSVN5Ir95vWhxSZp6jaEW-4P96q7g/edit?usp=sharing )
+-  [ERD Desgin](https://docs.google.com/document/d/1j9OR76IRrM4uSaBSVN5Ir95vWhxSZp6jaEW-4P96q7g/edit?usp=sharing)
 ---
  ## How to use it
  - Clone the reop
