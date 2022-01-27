@@ -3,20 +3,22 @@
 ---
 ## Why, What 
 ### why 
-1. 
-2. This is the final project for DataBase course COMP333 in Birzeit University
+1. This project is made to help administration Al-Aqsa Driving school
+3. This is the final project for DataBase course ( COMP333 ) in Birzeit University
 
 ### What 
--  
+-  This project provides the abiity to manage the whole process for each student that register in the school
+-  Only the employees have acess to the system and can add new students, employees, cars, payments or modify them
 
 ---
 
 ## ERD 
--  
+-  [ERD design] ( https://docs.google.com/document/d/1j9OR76IRrM4uSaBSVN5Ir95vWhxSZp6jaEW-4P96q7g/edit?usp=sharing )
 ---
  ## How to use it
- - Clone the repo 
-
+ - Clone the reop
+ - You need to have javafx jars and scene builder on your computer to be able to run the program
+ - To log in, you need to have one of the employees id and use it as a user name and password
 ---
 ## Languages And Tools:
 
