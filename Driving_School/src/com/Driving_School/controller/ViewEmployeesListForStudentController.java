@@ -28,6 +28,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+
+/**
+ * 
+ * @author Shahd
+ *
+ */
 public class ViewEmployeesListForStudentController implements Initializable{
 
 	Student c_stu;
@@ -152,15 +158,15 @@ public class ViewEmployeesListForStudentController implements Initializable{
 			Statement stmt = conn.createStatement();
 			String sql1;
 			if(search_box.getText().matches("[0-9]+")) {
-				sql1 = "Select * from employee where emp_id like '%" + search_box.getText() + "%' ;";
+				sql1 = "Select * from trainer where trainer_id like '%" + search_box.getText() + "%' ;";
 			}
 			else {
 				String[] split = search_box.getText().split(" ");
 				if(split.length == 1) {
-					sql1 = "Select * from employee where first_name like '%" + split[0] + "%' ;";
+					sql1 = "Select * from employee e, trainer t where e.emp_id = t.trainer_id and e.first_name like '%" + split[0] + "%' ;";
 				}
 				else {
-					sql1 = "Select * from employee where first_name like '%" + split[0] + "%' and last_name like '%" + split[1] + "%' ;";
+					sql1 = "Select * from employee e, trainer t where e.emp_id = t.trainer_id and first_name like '%" + split[0] + "%' and last_name like '%" + split[1] + "%' ;";
 				}
 			}
 			

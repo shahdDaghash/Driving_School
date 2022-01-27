@@ -28,6 +28,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
+
+/**
+ * 
+ * @author Shahd
+ *
+ */
 public class ViewEmployeeListForEmployeeController implements Initializable {
 
 	Employee c_emp;
