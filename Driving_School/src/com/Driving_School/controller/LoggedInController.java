@@ -35,13 +35,17 @@ public class LoggedInController {
 	public void userLogIn(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 		checkLogin();
 	}
-
+	/**
+	 * The user can log in using one of the employees id as a user name and password
+	 * @throws IOException
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	private void checkLogin() throws IOException, SQLException, ClassNotFoundException {
 		Main m = new Main();
 		String userName = username.getText().toString();
 		String pass = password.getText().toString();
 		String sql = "Select * from employee Where emp_id='" + userName + "' and emp_id='" + pass + "'";
-		//System.out.println("Here");
 		Connection conn = com.Driving_School.model.MySQLConnect.connectDb();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
@@ -54,7 +58,6 @@ public class LoggedInController {
 		else if (username.getText().isEmpty() && password.getText().isEmpty()) {
 			wrongLogIn.setText("Please enter your data.");
 		}
-
 		else {
 			wrongLogIn.setText("Wrong username or password!");
 		}
