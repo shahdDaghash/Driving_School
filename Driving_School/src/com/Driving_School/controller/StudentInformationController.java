@@ -20,6 +20,12 @@ import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+
+/**
+ * 
+ * @author Shahd
+ *
+ */
 public class StudentInformationController {
 
 	Student stu;

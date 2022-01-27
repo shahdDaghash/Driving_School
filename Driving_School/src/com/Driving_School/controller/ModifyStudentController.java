@@ -26,6 +26,12 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+
+/**
+ * 
+ * @author Shahd
+ *
+ */
 public class ModifyStudentController {
 
 	Student stu;
