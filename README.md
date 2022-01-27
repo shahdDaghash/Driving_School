@@ -7,7 +7,7 @@
 3. This is the final project for DataBase course ( COMP333 ) in Birzeit University
 
 ### What 
--  This project provides the abiity to manage the whole process for each student that register in the school
+-  This project provides the ability to manage the whole process for each student that register in the school
 -  Only the employees have acess to the system and can add new students, employees, cars, payments or modify them
 
 ---
