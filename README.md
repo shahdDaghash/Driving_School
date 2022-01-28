@@ -15,7 +15,7 @@
 -  [ERD Design](https://docs.google.com/document/d/1j9OR76IRrM4uSaBSVN5Ir95vWhxSZp6jaEW-4P96q7g/edit?usp=sharing)
 ---
  ## How to use it
- - Clone the reop
+ - Clone the repo
  - You need to have javafx and scene builder on your computer to be able to run the program
  - To log in, you need to have one of the employees id and use it as a user name and password
 ---
