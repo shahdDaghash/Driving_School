@@ -2,7 +2,7 @@
 
 ---
 ## Why, What 
-### why 
+### Why 
 1. Most of the Driving schools in the region we live in use the paper system registration; All transactions are done in paper records and, in best cases are entered manually to an excel worksheet. This applies to Al-Aqsa School. As a solution; a database system is created to turn paperwork into digital and collect all data in one organized data system. 
 2. This is the final project for DataBase course ( COMP333 ) in Birzeit University
 
