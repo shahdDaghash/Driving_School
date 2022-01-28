@@ -3,12 +3,11 @@
 ---
 ## Why, What 
 ### why 
-1. This project is made to help administration Al-Aqsa Driving school
-3. This is the final project for DataBase course ( COMP333 ) in Birzeit University
+1. Most of the Driving schools in the region we live in use the paper system registration; All transactions are done in paper records and, in best cases are entered manually to an excel worksheet. This applies to Al-Aqsa School. As a solution; a database system is created to turn paperwork into digital and collect all data in one organized data system. 
+2. This is the final project for DataBase course ( COMP333 ) in Birzeit University
 
 ### What 
--  This project provides the ability to manage the whole process for each student that register in the school
--  Only employees have acess to the system and can add new students, employees, cars, payments or modify them
+-  This system controls the registration process of a student from the moment he/she enters the school until he/she successfully gets the driving license. This process includes paper transactions, driving class scheduling, linking to a specific trainer … etc.
 
 ---
 
