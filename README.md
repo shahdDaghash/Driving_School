@@ -8,7 +8,7 @@
 
 ### What 
 -  This project provides the ability to manage the whole process for each student that register in the school
--  Only the employees have acess to the system and can add new students, employees, cars, payments or modify them
+-  Only employees have acess to the system and can add new students, employees, cars, payments or modify them
 
 ---
 
@@ -17,7 +17,7 @@
 ---
  ## How to use it
  - Clone the reop
- - You need to have javafx jars and scene builder on your computer to be able to run the program
+ - You need to have javafx and scene builder on your computer to be able to run the program
  - To log in, you need to have one of the employees id and use it as a user name and password
 ---
 ## Languages And Tools:
